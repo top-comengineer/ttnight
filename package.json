@@ -1,6 +1,7 @@
 {
   "name": "22night",
   "version": "0.1.0",
+  "homepage": "https://livedreamok.github.io/ttnight",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.8.1",

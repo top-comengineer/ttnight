@@ -1,6 +1,8 @@
+import { Box } from '@chakra-ui/react';
+
 const Footer = () => {
   return (
-    <div className="">
+    <Box className="">
       <footer>
         <div className="custom-container">
           <div className="footer-top">
@@ -50,7 +52,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-    </div>
+    </Box>
   );
 };
 

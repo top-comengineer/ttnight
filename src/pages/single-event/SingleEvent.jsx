@@ -171,20 +171,10 @@ const SingleEvent = () => {
                     data-filter="false"
                     data-placeholder=""
                   >
-                    <ul className="geslacht-list">
-                      <li className="gender">
-                        <option value="gender">Geslacht</option>
-                      </li>
-                      <li className="gender">
-                        <option value="Man">man</option>
-                      </li>
-                      <li className="gender">
-                        <option value="Vrouw">Vrouw</option>
-                      </li>
-                      <li className="gender">
-                        <option value="Onzijdig">Onzijdig</option>
-                      </li>
-                    </ul>
+                    <option value="gender">Geslacht</option>
+                    <option value="Man">man</option>
+                    <option value="Vrouw">Vrouw</option>
+                    <option value="Onzijdig">Onzijdig</option>
                   </select>
                 </div>
 

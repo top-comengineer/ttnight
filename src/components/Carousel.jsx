@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import clsx from 'clsx';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Scrollbar, A11y } from 'swiper';
 
@@ -8,8 +10,6 @@ import 'swiper/scss/pagination';
 import NotificationIcon from '../assets/new-image/Notification.svg';
 import NewImage from '../assets/new-image/Img.svg';
 import NewsLetterImg from '../assets/image svg/newsletter.svg';
-import { useState } from 'react';
-import clsx from 'clsx';
 
 const arrayList = Array(5).fill('number');
 const Carousel = () => {
@@ -26,6 +26,10 @@ const Carousel = () => {
   return (
     <div className="custom-container">
       <Swiper
+        style={{
+          '--swiper-navigation-color': '#fff',
+          '--swiper-pagination-color': '#fff',
+        }}
         modules={[Navigation, Scrollbar, A11y]}
         slidesPerView={'auto'}
         loop={true}

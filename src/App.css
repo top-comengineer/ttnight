@@ -1385,6 +1385,7 @@ input#date::-webkit-calendar-picker-indicator {
   font-size: 14px;
   font-weight: 400;
   line-height: 16px;
+  padding-left: 0;
 }
 
 .event-information-form form .checkbox a {
@@ -1478,10 +1479,10 @@ div#namelocation {
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
+  padding-top: 4px;
 }
 img.danger {
   position: relative;
-  bottom: -4px;
 }
 input.btn.btn-primarys {
   color: #fff;
@@ -1521,6 +1522,9 @@ input.btn.btn-primarys {
   width: 100%;
   margin-top: 24px;
   cursor: pointer;
+}
+.btn-primarys:hover {
+  color: #fff;
 }
 .login_form {
   height: 85vh;
@@ -2261,6 +2265,56 @@ ul.checkbox-dropdown-list.border-none input {
 }
 /*dropdown End */
 
+/* menu style */
+.menu-list .chakra-menu__group {
+  border: 1px solid #80737a !important;
+  background: #332b2f !important;
+  padding: 0 !important;
+  min-width: 160px;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.menu-list .chakra-menu__group > button {
+  border: 1px solid #80737a;
+  background: #332b2f;
+  transition: all 0.2s ease-out;
+  color: #fff;
+  font-family: Public Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  padding: 8px 16px 8px 8px;
+}
+
+.checkbox-menu-list {
+  border: 1px solid #80737a !important;
+  background: #332b2f !important;
+  padding: 0 !important;
+  min-width: 160px;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.checkbox-menu-list > button {
+  border: 1px solid #80737a;
+  background: #332b2f;
+  transition: all 0.2s ease-out;
+  color: #fff;
+  font-family: Public Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  padding: 8px 16px 8px 8px;
+}
 /*tooltp*/
 
 /*tooltip End--*/

@@ -4,6 +4,16 @@ import GenreIcon from '../assets/image svg/Music.svg';
 import UserIcon from '../assets/image svg/User.svg';
 
 import ArrowDownIcon from '../assets/image svg/chevron down.svg';
+import {
+  Button,
+  Checkbox,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItemOption,
+  MenuList,
+  MenuOptionGroup,
+} from '@chakra-ui/react';
 
 const DiscoverEvent = () => {
   return (
@@ -13,341 +23,141 @@ const DiscoverEvent = () => {
         <div className="external-dropdown">
           <div className="outer">
             <div className="side">
-              <div className="dropdown">
-                <button
+              <Menu>
+                <MenuButton
+                  as={Button}
                   className="nextButton btn btn-primary dropdown-toggle"
-                  type="button"
-                  data-toggle="dropdown"
+                  leftIcon={<img src={DatumIcon} alt="datum" />}
+                  rightIcon={<img src={ArrowDownIcon} alt="arrow down" />}
                 >
-                  <img src={DatumIcon} alt="datum" />{' '}
                   <span className="selectedOption" id="button1Text">
                     {' '}
                     Datum{' '}
                   </span>
-                  <img src={ArrowDownIcon} alt="arrow down" />
-                </button>
-                <ul className="dropdown-menu  checkbox-dropdown-list border-none">
-                  <li>
-                    <input
-                      id="vandaag"
-                      className="radio-custom"
-                      name="ontdek evenementen"
-                      type="radio"
-                      value="vandaag"
-                      checked
-                    />
-                    <label htmlFor="vandaag" className="radio-custom-label">
-                      Vandaag
-                    </label>
-                  </li>
-                  <li>
-                    <input
-                      id="morgen"
-                      className="radio-custom"
-                      name="ontdek evenementen"
-                      type="radio"
-                      value="morgen"
-                    />
-                    <label htmlFor="morgen" className="radio-custom-label">
-                      Morgen
-                    </label>
-                  </li>
-                  <li>
-                    <input
-                      id="deze week"
-                      className="radio-custom"
-                      name="ontdek evenementen"
-                      type="radio"
-                      value="deze week"
-                    />
-                    <label htmlFor="deze week" className="radio-custom-label">
-                      Deze week
-                    </label>
-                  </li>
-                  <li>
-                    <input
-                      id="volgende week"
-                      className="radio-custom"
-                      name="ontdek evenementen"
-                      type="radio"
-                      value="volgende week"
-                    />
-                    <label
-                      htmlFor="volgende week"
-                      className="radio-custom-label"
-                    >
+                </MenuButton>
+                <MenuList className="menu-list">
+                  <MenuOptionGroup
+                    className=""
+                    defaultValue="vandaag"
+                    type="radio"
+                  >
+                    <MenuItemOption value="vandaag">Vandaag</MenuItemOption>
+                    <MenuItemOption value="morgen">Morgen</MenuItemOption>
+                    <MenuItemOption value="deze week">Deze week</MenuItemOption>
+                    <MenuItemOption value="volgende week">
                       Volgende week
-                    </label>
-                  </li>
-
-                  <li>
-                    <input
-                      id="deze maand"
-                      className="radio-custom"
-                      name="ontdek evenementen"
-                      type="radio"
-                      value="deze maand"
-                    />
-                    <label htmlFor="deze maand" className="radio-custom-label">
+                    </MenuItemOption>
+                    <MenuItemOption value="deze maand">
                       Deze maand
-                    </label>
-                  </li>
-                  <li>
-                    <input
-                      id="alle datums"
-                      className="radio-custom"
-                      name="ontdek evenementen"
-                      type="radio"
-                      value="alle datums"
-                    />
-                    <label htmlFor="alle datums" className="radio-custom-label">
+                    </MenuItemOption>
+                    <MenuItemOption value="alle datums">
                       Alle datums
-                    </label>
-                  </li>
-                </ul>
-              </div>
+                    </MenuItemOption>
+                  </MenuOptionGroup>
+                </MenuList>
+              </Menu>
             </div>
             <div className="side">
-              <div className="dropdown">
-                <button
+              <Menu>
+                <MenuButton
+                  as={Button}
                   className="nextButton btn btn-primary dropdown-toggle"
-                  type="button"
-                  data-toggle="dropdown"
+                  leftIcon={<img src={CategoryIcon} alt="datum" />}
+                  rightIcon={<img src={ArrowDownIcon} alt="arrow down" />}
                 >
-                  <img src={CategoryIcon} alt="category" />{' '}
-                  <span className="selectedOption" id="button2Text">
-                    {' '}
-                    Categorie{' '}
+                  <span className="selectedOption" id="button1Text">
+                    Categorie
                   </span>
-                  <img src={ArrowDownIcon} alt="arrow down" />
-                </button>
-                <ul className="dropdown-menu checkbox-dropdown-list border-none">
-                  <li>
-                    <input
-                      id="dag"
-                      type="radio"
-                      className="radio-custom"
-                      value="dag event"
-                      name="categorie"
-                      checked
-                    />
-                    <label htmlFor="dag" className="radio-custom-label">
-                      Dag event
-                    </label>
-                  </li>
-                  <li>
-                    <input
-                      id="nacht"
-                      type="radio"
-                      className="radio-custom"
-                      value="nacht event"
-                      name="categorie"
-                    />
-                    <label htmlFor="nacht" className="radio-custom-label">
+                </MenuButton>
+                <MenuList className="menu-list">
+                  <MenuOptionGroup
+                    className=""
+                    defaultValue="dag event"
+                    type="radio"
+                  >
+                    <MenuItemOption value="dag event">Dag event</MenuItemOption>
+                    <MenuItemOption value="nacht event">
                       Nacht event
-                    </label>
-                  </li>
-                  <li>
-                    <input
-                      id="festival"
-                      type="radio"
-                      className="radio-custom"
-                      value="festival"
-                      name="categorie"
-                    />
-                    <label htmlFor="festival" className="radio-custom-label">
-                      Festival
-                    </label>
-                  </li>
-                  <li>
-                    <input
-                      id="alle events"
-                      type="radio"
-                      className="radio-custom"
-                      value="alle events"
-                      name="categorie"
-                    />
-                    <label htmlFor="alle events" className="radio-custom-label">
+                    </MenuItemOption>
+                    <MenuItemOption value="festival">Festival</MenuItemOption>
+                    <MenuItemOption value="alle events">
                       Alle events
-                    </label>
-                  </li>
-                </ul>
-              </div>
+                    </MenuItemOption>
+                  </MenuOptionGroup>
+                </MenuList>
+              </Menu>
             </div>
             <div className="side">
-              <div className="dropdown">
-                <button
+              <Menu closeOnSelect={false}>
+                <MenuButton
+                  as={Button}
                   className="nextButton btn btn-primary dropdown-toggle"
-                  type="button"
-                  data-toggle="dropdown"
+                  leftIcon={<img src={GenreIcon} alt="datum" />}
+                  rightIcon={<img src={ArrowDownIcon} alt="arrow down" />}
                 >
-                  <img src={GenreIcon} alt="genre" />
-                  <span> Genre </span>
-                  <img src={ArrowDownIcon} alt="arrow down" />
-                </button>
-                <ul className="dropdown-menu checkbox-dropdown-list">
-                  <li>
-                    {' '}
-                    <label>
-                      <input
-                        type="checkbox"
-                        value="amapiano"
-                        name="amapiano"
-                        checked
-                      />
+                  <span className="selectedOption" id="button1Text">
+                    Genre
+                  </span>
+                </MenuButton>
+                <MenuList className="menu-list">
+                  <MenuOptionGroup className="" type="checkbox">
+                    <MenuItemOption isChecked={true} value="amapiano">
                       Amapiano
-                    </label>
-                  </li>
-                  <li>
-                    {' '}
-                    <label>
-                      {' '}
-                      <input
-                        type="checkbox"
-                        value="classics"
-                        name="classics"
-                        checked
-                      />
-                      Classics
-                    </label>
-                  </li>
-                  <li>
-                    {' '}
-                    <label>
-                      {' '}
-                      <input
-                        type="checkbox"
-                        value="hip-hop"
-                        name="hip-hop"
-                        checked
-                      />
-                      Hip-hop
-                    </label>
-                  </li>
-                  <li>
-                    {' '}
-                    <label>
-                      {' '}
-                      <input
-                        type="checkbox"
-                        value="hitjes"
-                        name="hitjes"
-                        checked
-                      />
-                      Hitjes
-                    </label>
-                  </li>
-                  <li>
-                    {' '}
-                    <label>
-                      {' '}
-                      <input
-                        type="checkbox"
-                        value="house"
-                        name="house"
-                        checked
-                      />
-                      House
-                    </label>
-                  </li>
-                  <li>
-                    {' '}
-                    <label>
-                      {' '}
-                      <input
-                        type="checkbox"
-                        value="disco"
-                        name="disco"
-                        checked
-                      />
-                      Disco
-                    </label>
-                  </li>
-                  <li>
-                    {' '}
-                    <label>
-                      {' '}
-                      <input
-                        type="checkbox"
-                        value="techno"
-                        name="techno"
-                        checked
-                      />
-                      Techno
-                    </label>
-                  </li>
-                </ul>
-              </div>
+                    </MenuItemOption>
+                    <MenuItemOption value="classics">Classics</MenuItemOption>
+                    <MenuItemOption value="hip-hop">Hip-hop</MenuItemOption>
+                    <MenuItemOption value="hitjes">Hitjes</MenuItemOption>
+                    <MenuItemOption value="house">House</MenuItemOption>
+                    <MenuItemOption value="disco">Disco</MenuItemOption>
+                    <MenuItemOption value="techno">Techno</MenuItemOption>
+                  </MenuOptionGroup>
+                  {/* <MenuItem>
+                    <Checkbox defaultChecked>Amapiano</Checkbox>
+                  </MenuItem>
+                  <MenuItem>
+                    <Checkbox defaultChecked>Classics</Checkbox>
+                  </MenuItem>
+                  <MenuItem>
+                    <Checkbox defaultChecked>Hip-hop</Checkbox>
+                  </MenuItem>
+                  <MenuItem>
+                    <Checkbox defaultChecked>Hitjes</Checkbox>
+                  </MenuItem>
+                  <MenuItem>
+                    <Checkbox defaultChecked>House</Checkbox>
+                  </MenuItem>
+                  <MenuItem>
+                    <Checkbox defaultChecked>Disco</Checkbox>
+                  </MenuItem>
+                  <MenuItem>
+                    <Checkbox defaultChecked>Techno</Checkbox>
+                  </MenuItem> */}
+                </MenuList>
+              </Menu>
             </div>
             <div className="side">
-              <div className="dropdown">
-                <button
+              <Menu>
+                <MenuButton
+                  as={Button}
                   className="nextButton btn btn-primary dropdown-toggle"
-                  type="button"
-                  data-toggle="dropdown"
+                  leftIcon={<img src={UserIcon} alt="datum" />}
+                  rightIcon={<img src={ArrowDownIcon} alt="arrow down" />}
                 >
-                  <img src={UserIcon} alt="user" />
-                  <span className="selectedOption" id="button3Text">
-                    {' '}
-                    Leeftijd{' '}
-                  </span>{' '}
-                  <img src={ArrowDownIcon} alt="arrow down" />
-                </button>
-                <ul className="dropdown-menu checkbox-dropdown-list border-none">
-                  <li>
-                    <input
-                      id="18"
-                      className="radio-custom"
-                      name="Age"
-                      type="radio"
-                      value="18"
-                      checked
-                    />
-                    <label htmlFor="18" className="radio-custom-label">
-                      18+
-                    </label>
-                  </li>
-                  <li>
-                    <input
-                      id="21"
-                      className="radio-custom"
-                      name="Age"
-                      type="radio"
-                      value="21"
-                    />
-                    <label htmlFor="21" className="radio-custom-label">
-                      21+
-                    </label>
-                  </li>
-                  <li>
-                    <input
-                      id="Age-23"
-                      className="radio-custom"
-                      name="Age"
-                      type="radio"
-                      value="21"
-                    />
-                    <label htmlFor="Age-23" className="radio-custom-label">
-                      23+
-                    </label>
-                  </li>
-                  <li>
-                    <input
-                      id="Alle leeftijden"
-                      className="radio-custom"
-                      name="Age"
-                      type="radio"
-                      value="Alle leeftijden"
-                    />
-                    <label
-                      htmlFor="Alle leeftijden"
-                      className="radio-custom-label"
-                    >
+                  <span className="selectedOption" id="button1Text">
+                    Leeftijd
+                  </span>
+                </MenuButton>
+                <MenuList className="menu-list">
+                  <MenuOptionGroup className="" defaultValue="18" type="radio">
+                    <MenuItemOption value="18">18+</MenuItemOption>
+                    <MenuItemOption value="21">21+</MenuItemOption>
+                    <MenuItemOption value="23">23+</MenuItemOption>
+                    <MenuItemOption value="alle leeftijden">
                       Alle leeftijden
-                    </label>
-                  </li>
-                </ul>
-              </div>
+                    </MenuItemOption>
+                  </MenuOptionGroup>
+                </MenuList>
+              </Menu>
             </div>
           </div>
         </div>

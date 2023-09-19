@@ -16,6 +16,51 @@
     display: none;
   }
 }
+@media only screen and (max-width: 640px) {
+  .external-dropdown {
+    position: relative;
+  }
+  .event-img.text-center img {
+    width: 95%;
+    margin: auto;
+  }
+  section.event-form-sec .containers {
+    width: 100%;
+  }
+  button.btn.btn-dropdown {
+    padding: 12px 8px;
+    min-width: 120px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    color: var(--night-color-neutral-100, #f2ebef);
+    text-align: center;
+    font-family: Public Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 14px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    margin: 0 auto;
+    min-height: 100%;
+    border: 0;
+    border: 0;
+    padding: 0 9px;
+  }
+  .outer {
+    display: flex;
+    overflow-x: auto;
+  }
+  .zoek-evenementen .tooltipss {
+    position: relative;
+    width: fit-content;
+    display: flex;
+    margin-top: 0px;
+  }
+}
 @media (max-width: 990px) {
   .container-single {
     padding: 41px 77px;
@@ -685,6 +730,25 @@ height:400px;
     font-weight: 600;
     line-height: 14px;
   }
+  button.btn.btn-dropdown {
+    display: flex;
+    padding: 12px 8px;
+    min-width: 120px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    color: var(--night-color-neutral-100, #f2ebef);
+    text-align: center;
+    font-family: Public Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 14px;
+  }
+  button.btn.btn-dropdown > .chakra-button__icon > img {
+    width: 16px;
+    height: 16px;
+  }
   h6.text-end.text-gray {
     font-size: 14px;
   }
@@ -835,6 +899,10 @@ height:400px;
   .event-hero-section .multipan-event-box {
     padding-top: 10px;
   }
+  .multipan-event-box {
+    gap: 8px;
+  }
+
   .col-md-6 {
     margin-bottom: 12px;
   }
@@ -955,6 +1023,7 @@ height:400px;
   .event-img.text-center img {
     height: 200px;
     width: 95%;
+    margin: auto;
   }
   .event-heading h1.text-center.text-whites {
   }
@@ -1272,7 +1341,7 @@ height:400px;
     padding: 16px;
     border-radius: 8px;
     border: 1px solid #ccc2c7;
-    margin-left: 5px;
+    margin-left: 8px;
   }
   footer input {
     width: 57%;
@@ -1327,6 +1396,10 @@ height:400px;
     position: absolute;
     top: 11px;
     right: 6px;
+  }
+  .menu-list .chakra-menu__group > button {
+    font-size: 14px;
+    line-height: 20px;
   }
 }
 @media (max-width: 428px) {

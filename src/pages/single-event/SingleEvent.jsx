@@ -11,6 +11,7 @@ import UserSinImg from '../../assets/image svg/User-sin.svg';
 import WarningImg from '../../assets/image svg/Warning.svg';
 
 import './SingleEvent.css';
+import { Checkbox } from '@chakra-ui/react';
 
 const SingleEvent = () => {
   return (
@@ -43,33 +44,33 @@ const SingleEvent = () => {
               <li className="event date">
                 <a className="text-white flex">
                   <img src={LocateImg} alt="Locatie" />
-                  <span className="text-color">Oliva, Amsterdam</span>
+                  <span className="text-color ml-1">Oliva, Amsterdam</span>
                 </a>
               </li>
 
               <li className="event date">
                 <a className="text-white flex">
                   <img src={CalendarImg} alt="Calendar" />
-                  <span className="text-color">25 aug — 23:00</span>
+                  <span className="text-color ml-1">25 aug — 23:00</span>
                 </a>
               </li>
 
               <li className="event date">
                 <a className="text-white flex">
                   <img src={GuestListImg} alt="Guestlist" />
-                  <span className="text-color">Gastenlijst</span>
+                  <span className="text-color ml-1">Gastenlijst</span>
                 </a>
               </li>
               <li className="event date">
                 <a className="text-white flex">
                   <img src={UserImg} alt="User" />
-                  <span className="text-color">21+</span>
+                  <span className="text-color ml-1">21+</span>
                 </a>
               </li>
               <li className="event date">
                 <a className="text-white flex">
                   <img src={MusicImg} alt="Music" />
-                  <span className="text-color">Hitjes, R&B, House</span>
+                  <span className="text-color ml-1">Hitjes, R&B, House</span>
                 </a>
               </li>
             </ul>
@@ -244,6 +245,20 @@ const SingleEvent = () => {
             </div>
           </div>
         </section>
+        <div class="event-price-box mobile">
+          <div class="row justify-content-between">
+            <div class="price-box text-white">
+              <h3>€15,-</h3>
+              <h6>in plaats van €25,-</h6>
+            </div>
+
+            <div class="price-button">
+              <button class="button openPopupButtons" type="submit">
+                Koop vriendenticket
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

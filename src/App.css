@@ -1236,6 +1236,7 @@ a.buttons {
 
 .multipan-event-box {
   display: flex;
+  gap: 10px;
   margin-bottom: 16px;
 }
 
@@ -1244,7 +1245,13 @@ a.buttons {
 }
 .multipan-event-box img {
   padding-top: 4px;
-  margin-right: 10px;
+}
+.events-image {
+  width: 25px;
+}
+.events-content {
+  flex-grow: 1;
+  width: calc(100% - 35px);
 }
 .events-content.text-white {
   font-weight: 600;
@@ -1355,6 +1362,9 @@ span.tooltip-button svg {
     border: 2px solid #51494d;*/
   border-radius: 4px;
   position: relative;
+}
+.event-information-form form .checkbox input:focus {
+  outline: none;
 }
 .event-information-form form .checkbox input[type='checkbox']:checked::after {
   content: '';
@@ -1593,7 +1603,8 @@ input#validationCustom01 {
   background: #262123;
   margin-bottom: 8px;
 }
-button.btn.btn-primary {
+
+button.btn.btn-dropdown {
   padding: 12px;
   justify-content: center;
   align-items: center;
@@ -1608,13 +1619,27 @@ button.btn.btn-primary {
   border-radius: 4px;
   cursor: pointer;
   color: #fff;
-  /*  border: 1px solid #8932F6; */
-  background: linear-gradient(180deg, #8932f6 0%, #a15bf9 100%);
+  background: #262123;
+}
+button.btn.btn-dropdown > span:nth-child(2) {
+  flex: none !important;
+}
+
+button.btn.btn-dropdown > .chakra-button__icon:first-child {
+  margin-inline-end: 0;
+}
+button.btn.btn-dropdown > .chakra-button__icon:last-child {
+  margin-inline-start: 0;
+}
+
+button.btn.btn-dropdown[aria-expanded='true'] {
+  border: 2px solid #80737a !important;
+  background: #332b2f !important;
 }
 .selected-button {
   border: 2px solid #80737a;
 }
-button.nextButton.btn.btn-primary.dropdown-toggle img {
+button.nextButton.btn.btn-dropdown.dropdown-toggle img {
   position: relative;
   top: -2px;
 }
@@ -1670,7 +1695,7 @@ p.text-white.text-p {
 }
 
 .slider-item {
-  height: 300px;
+  /* height: 300px; */
   background: #262123;
   width: 232px !important;
   position: relative;
@@ -2256,11 +2281,11 @@ ul.checkbox-dropdown-list.border-none input {
   font-size: 13px;
 }
 
-.dropdown.open button.nextButton.btn.btn-primary.dropdown-toggle {
+.dropdown.open button.nextButton.btn.btn-dropdown.dropdown-toggle {
   border: 2px solid #80737a !important;
   background: #332b2f !important;
 }
-.btn-primary:hover {
+.btn-dropdown:hover {
   border-color: transparent !important;
 }
 /*dropdown End */
@@ -2290,7 +2315,31 @@ ul.checkbox-dropdown-list.border-none input {
   line-height: 22px;
   padding: 8px 16px 8px 8px;
 }
-
+.menu-checkbox-list .chakra-menu__group > button > .chakra-menu__icon-wrapper {
+  -webkit-margin-end: 0.5rem;
+  margin-inline-end: 0.5rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background-color: #332b2f;
+  border: 2px solid #51494d;
+  opacity: 1;
+}
+.menu-checkbox-list
+  .chakra-menu__group
+  > button[aria-checked='true']
+  > .chakra-menu__icon-wrapper
+  > svg {
+  margin: 3px 0px 2px 2px;
+  visibility: visible;
+}
+.menu-checkbox-list
+  .chakra-menu__group
+  > button[aria-checked='false']
+  > .chakra-menu__icon-wrapper
+  > svg {
+  visibility: hidden;
+}
 .checkbox-menu-list {
   border: 1px solid #80737a !important;
   background: #332b2f !important;

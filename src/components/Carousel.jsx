@@ -58,7 +58,7 @@ const Carousel = () => {
                 <p className="slider-p">Thuishaven,Amsterdam</p>
                 <div className="toolt">
                   <span>1 aug — 23:00</span>
-                  <span className="ml-1">21+</span>
+                  <span className="ml-1.5">21+</span>
                 </div>
               </div>
             </div>

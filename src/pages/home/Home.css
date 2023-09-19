@@ -34,22 +34,3 @@ body {
 .selected-button {
   border: 2px solid #80737a;
 }
-@media only screen and (max-width: 600px) {
-  .wrapper {
-    margin: 0 auto;
-    min-height: 100%;
-    border: 0;
-    border: 0;
-    padding: 0 9px;
-  }
-  .outer {
-    display: flex;
-    overflow-x: auto;
-  }
-  .zoek-evenementen .tooltipss {
-    position: relative;
-    width: fit-content;
-    display: flex;
-    margin-top: 0px;
-  }
-}

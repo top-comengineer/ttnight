@@ -26,7 +26,7 @@ const DiscoverEvent = () => {
               <Menu>
                 <MenuButton
                   as={Button}
-                  className="nextButton btn btn-primary dropdown-toggle"
+                  className="btn btn-dropdown dropdown-toggle"
                   leftIcon={<img src={DatumIcon} alt="datum" />}
                   rightIcon={<img src={ArrowDownIcon} alt="arrow down" />}
                 >
@@ -35,7 +35,7 @@ const DiscoverEvent = () => {
                     Datum{' '}
                   </span>
                 </MenuButton>
-                <MenuList className="menu-list">
+                <MenuList className="menu-list" pos="absolute" top="8" left="0">
                   <MenuOptionGroup
                     className=""
                     defaultValue="vandaag"
@@ -61,7 +61,7 @@ const DiscoverEvent = () => {
               <Menu>
                 <MenuButton
                   as={Button}
-                  className="nextButton btn btn-primary dropdown-toggle"
+                  className="btn btn-dropdown dropdown-toggle"
                   leftIcon={<img src={CategoryIcon} alt="datum" />}
                   rightIcon={<img src={ArrowDownIcon} alt="arrow down" />}
                 >
@@ -69,7 +69,7 @@ const DiscoverEvent = () => {
                     Categorie
                   </span>
                 </MenuButton>
-                <MenuList className="menu-list">
+                <MenuList className="menu-list" pos="absolute" top="8" left="0">
                   <MenuOptionGroup
                     className=""
                     defaultValue="dag event"
@@ -91,7 +91,7 @@ const DiscoverEvent = () => {
               <Menu closeOnSelect={false}>
                 <MenuButton
                   as={Button}
-                  className="nextButton btn btn-primary dropdown-toggle"
+                  className="btn btn-dropdown dropdown-toggle"
                   leftIcon={<img src={GenreIcon} alt="datum" />}
                   rightIcon={<img src={ArrowDownIcon} alt="arrow down" />}
                 >
@@ -99,7 +99,12 @@ const DiscoverEvent = () => {
                     Genre
                   </span>
                 </MenuButton>
-                <MenuList className="menu-list">
+                <MenuList
+                  className="menu-list menu-checkbox-list"
+                  pos="absolute"
+                  top="8"
+                  left="0"
+                >
                   <MenuOptionGroup className="" type="checkbox">
                     <MenuItemOption isChecked={true} value="amapiano">
                       Amapiano
@@ -111,27 +116,6 @@ const DiscoverEvent = () => {
                     <MenuItemOption value="disco">Disco</MenuItemOption>
                     <MenuItemOption value="techno">Techno</MenuItemOption>
                   </MenuOptionGroup>
-                  {/* <MenuItem>
-                    <Checkbox defaultChecked>Amapiano</Checkbox>
-                  </MenuItem>
-                  <MenuItem>
-                    <Checkbox defaultChecked>Classics</Checkbox>
-                  </MenuItem>
-                  <MenuItem>
-                    <Checkbox defaultChecked>Hip-hop</Checkbox>
-                  </MenuItem>
-                  <MenuItem>
-                    <Checkbox defaultChecked>Hitjes</Checkbox>
-                  </MenuItem>
-                  <MenuItem>
-                    <Checkbox defaultChecked>House</Checkbox>
-                  </MenuItem>
-                  <MenuItem>
-                    <Checkbox defaultChecked>Disco</Checkbox>
-                  </MenuItem>
-                  <MenuItem>
-                    <Checkbox defaultChecked>Techno</Checkbox>
-                  </MenuItem> */}
                 </MenuList>
               </Menu>
             </div>
@@ -139,7 +123,7 @@ const DiscoverEvent = () => {
               <Menu>
                 <MenuButton
                   as={Button}
-                  className="nextButton btn btn-primary dropdown-toggle"
+                  className="btn btn-dropdown dropdown-toggle"
                   leftIcon={<img src={UserIcon} alt="datum" />}
                   rightIcon={<img src={ArrowDownIcon} alt="arrow down" />}
                 >
@@ -147,7 +131,7 @@ const DiscoverEvent = () => {
                     Leeftijd
                   </span>
                 </MenuButton>
-                <MenuList className="menu-list">
+                <MenuList className="menu-list" pos="absolute" top="8" left="0">
                   <MenuOptionGroup className="" defaultValue="18" type="radio">
                     <MenuItemOption value="18">18+</MenuItemOption>
                     <MenuItemOption value="21">21+</MenuItemOption>

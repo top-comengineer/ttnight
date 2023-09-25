@@ -25,7 +25,7 @@ const Login = () => {
       navigate('/');
       setCookie('token', 'amslijst', {
         path: '/',
-        expires: new Date(Date.now() + 86400 * 1000),
+        expires: new Date(Date.now() + 300 * 1000),
       });
     } else {
       setInputVal('');

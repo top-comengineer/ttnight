@@ -38,6 +38,7 @@ const Carousel = () => {
           clickable: true,
         }}
         scrollbar={{ draggable: true }}
+        className="custom-arrow"
       >
         {arrayList.map((item, index) => (
           <SwiperSlide key={index}>

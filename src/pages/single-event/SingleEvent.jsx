@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { Checkbox, Input } from '@chakra-ui/react';
+
 import { LogoSvg } from '../../utils/svg';
 import ArrowImg from '../../assets/image svg/arrow-left.svg';
 import LoodsImg from '../../assets/image svg/Loods1.svg';
@@ -11,9 +14,70 @@ import UserSinImg from '../../assets/image svg/User-sin.svg';
 import WarningImg from '../../assets/image svg/Warning.svg';
 
 import './SingleEvent.css';
-import { Checkbox } from '@chakra-ui/react';
 
-const SingleEvent = () => {
+const SingleEvent = ({ token }) => {
+  const [eFormData, setEFormData] = useState({
+    first_name: '',
+    last_name: '',
+    email: '',
+    dob: '',
+    gender: '',
+    event: 'SUPER SOCIAL | Chicago Social Club',
+    event_id: '29395',
+    token: '',
+  });
+  const [dobPlaceHolder, setDobPlaceHolder] = useState('Geboortedatum');
+
+  const onChange = e => {
+    setEFormData({ ...eFormData, [e.target.name]: e.target.value });
+  };
+
+  const focusDob = () => {
+    setDobPlaceHolder('dd-mm-jjjj');
+  };
+
+  const blurDob = () => {
+    setDobPlaceHolder('Geboortedatum');
+  };
+
+  const changeDob = e => {
+    const value = e.target.value;
+    let formattedValue = value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+    let placeholder = 'dd-mm-jjjj';
+    let cursorPosition = formattedValue.length;
+
+    // Format day (dd)
+    if (formattedValue.length >= 2) {
+      formattedValue =
+        formattedValue.slice(0, 2) + '-' + formattedValue.slice(2);
+      placeholder = formattedValue + placeholder.slice(3);
+      console.log('here is day', formattedValue, placeholder.slice(3));
+
+      cursorPosition = 3;
+    }
+
+    // Format month (mm)
+    if (formattedValue.length >= 5) {
+      formattedValue =
+        formattedValue.slice(0, 5) + '-' + formattedValue.slice(5);
+      placeholder = placeholder.slice(0, 3) + '-mm-' + placeholder.slice(6);
+      console.log('here is month', formattedValue, placeholder);
+
+      cursorPosition = 6;
+    }
+
+    // Format year (jjjj)
+    if (formattedValue.length > 10) {
+      formattedValue = formattedValue.slice(0, 10);
+      console.log('here is year', formattedValue, placeholder);
+    }
+
+    setEFormData({ ...eFormData, dob: formattedValue });
+    setDobPlaceHolder(placeholder);
+
+    // const input = document.getElementById('date');
+    // input.setSelectionRange(cursorPosition, cursorPosition);
+  };
   return (
     <div>
       <div className="hero-section-single">
@@ -132,45 +196,62 @@ const SingleEvent = () => {
               <form>
                 <div className="first-name event-sec-forms">
                   <div className="col-md-6">
-                    <input type="text" placeholder="Voornaam" className="sin" />
+                    <Input
+                      type="text"
+                      placeholder="Voornaam"
+                      name="first_name"
+                      value={eFormData.first_name}
+                      className="sin"
+                      onChange={onChange}
+                    />
                   </div>
                   <div className="col-md-6">
-                    <input
+                    <Input
                       type="text"
                       placeholder="Achternaam"
+                      name="last_name"
+                      value={eFormData.last_name}
                       className="sin"
+                      onChange={onChange}
                     />
                   </div>
                 </div>
                 <div className="email event-sec-form">
-                  <input
+                  <Input
                     type="email"
-                    name="email-input"
+                    name="email"
                     id="email"
+                    value={eFormData.email}
                     placeholder="E-mail"
                     className="sin"
+                    onChange={onChange}
                   />
                 </div>
                 <div className="date event-sec-form">
-                  <input
+                  <Input
                     type="text"
-                    maxLength="2"
+                    maxLength="10"
                     id="date"
-                    name="date"
+                    name="dob"
+                    value={eFormData.dob}
                     inputMode="numeric"
                     className="sin"
-                    placeholder="18"
+                    placeholder={dobPlaceHolder}
+                    onFocus={focusDob}
+                    onBlur={blurDob}
+                    onChange={changeDob}
                   />
-                  <span>jaar</span>
+                  {/* <span>jaar</span> */}
                 </div>
                 <div className="geslacht event-sec-form sin">
                   <select
                     id="geslacht"
                     className="cx-ui-select"
-                    name="geslacht"
+                    name="gender"
                     size="1"
                     data-filter="false"
                     data-placeholder=""
+                    onChange={onChange}
                   >
                     <option value="gender">Geslacht</option>
                     <option value="Man">man</option>
@@ -180,19 +261,19 @@ const SingleEvent = () => {
                 </div>
 
                 <div className="hidden-field ">
-                  <input
+                  <Input
                     type="hidden"
                     name="token"
                     id="token"
                     placeholder="token"
                   />
-                  <input
+                  <Input
                     type="hidden"
                     name="event_id"
                     id="event_id"
                     placeholder="event_id"
                   />
-                  <input
+                  <Input
                     type="hidden"
                     name="event"
                     id="event"
@@ -201,7 +282,7 @@ const SingleEvent = () => {
                 </div>
                 <div className="checkbox">
                   <div className="check">
-                    <input type="checkbox" name="" id="" />{' '}
+                    <Input type="checkbox" name="" id="" />{' '}
                   </div>
                   <div className="texts">
                     <label className="text-white">
@@ -245,15 +326,15 @@ const SingleEvent = () => {
             </div>
           </div>
         </section>
-        <div class="event-price-box mobile">
-          <div class="row justify-content-between">
-            <div class="price-box text-white">
+        <div className="event-price-box mobile">
+          <div className="row justify-content-between">
+            <div className="price-box text-white">
               <h3>€15,-</h3>
               <h6>in plaats van €25,-</h6>
             </div>
 
-            <div class="price-button">
-              <button class="button openPopupButtons" type="submit">
+            <div className="price-button">
+              <button className="button openPopupButtons" type="submit">
                 Koop vriendenticket
               </button>
             </div>

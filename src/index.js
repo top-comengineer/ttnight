@@ -5,6 +5,7 @@ import * as ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
+import { CookiesProvider } from 'react-cookie';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
@@ -12,9 +13,11 @@ const root = ReactDOM.createRoot(container);
 root.render(
   <StrictMode>
     <ColorModeScript />
-    <Router>
-      <App />
-    </Router>
+    <CookiesProvider defaultSetOptions={{ path: '/' }}>
+      <Router>
+        <App />
+      </Router>
+    </CookiesProvider>
   </StrictMode>
 );
 

@@ -4,7 +4,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   -webkit-appearance: none;
 }
 .event-information-form form .checkbox input[type='checkbox']:checked::after {
-  left: 3.8px;
+  left: 3.3px;
 }
 .event-information-form form .checkbox input {
   appearance: none;

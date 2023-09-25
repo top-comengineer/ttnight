@@ -1372,7 +1372,7 @@ span.tooltip-button svg {
 }
 .event-information-form form .checkbox input[type='checkbox']:checked::after {
   content: '';
-  height: 4px;
+  height: 5px;
   width: 9px;
   border-left: 1px solid #fff;
   border-bottom: 1px solid #fff;
@@ -1714,6 +1714,19 @@ p.text-white.text-p {
   max-width: 100%;
   max-height: 100%;
   width: 100%;
+}
+.custom-arrow .swiper-button-prev,
+.swiper-button-next {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.custom-arrow .swiper-button-next {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
 }
 img.Notification-img {
   position: absolute;

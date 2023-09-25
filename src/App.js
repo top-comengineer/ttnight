@@ -30,8 +30,8 @@ function App() {
       <Routes>
         <Route path="login" element={<Login />} />
         <Route path="/" element={<UserGuard token={token} />}>
-          <Route index element={<Home />} />
-          <Route path="single-event" element={<SingleEvent />} />
+          <Route index element={<Home token={token} />} />
+          <Route path="single-event" element={<SingleEvent token={token} />} />
         </Route>
       </Routes>
       {pathname === '/login' ? null : <Footer />}

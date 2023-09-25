@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import clsx from 'clsx';
+import axios from 'axios';
+
 import {
   LogoSvg,
   StarSvg,
@@ -14,10 +16,28 @@ import Cards from '../../components/Cards';
 import DiscoverEvent from '../../components/DiscoverEvent';
 import Carousel from '../../components/Carousel';
 
-const Home = () => {
+const Home = ({ token }) => {
   const [tab, setTab] = useState(1);
   const [searchForm, setSearchForm] = useState(false);
   const [smSearchForm, setSmSearchFrom] = useState(false);
+  const [eventData, setEventData] = useState({});
+
+  useEffect(() => {
+    getEventData(token);
+    console.log('this is user token', token);
+  }, [token]);
+  async function getEventData(token) {
+    const response = await axios.post(
+      `${process.env.REACT_APP_BACKEND_API}read.php`,
+      { token: token },
+      {
+        headers: {
+          'content-type': 'application/json',
+        },
+      }
+    );
+    console.log('this is event data');
+  }
   return (
     <div className="">
       <div className="hero-section">

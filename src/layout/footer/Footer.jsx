@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="footer-top">
             <div className="row">
               <div className="newsletter">
-                <h3>Join our newsletter</h3>
+                <h3 className="join-newsletter">Join our newsletter</h3>
                 <h6 className="text-gray">
                   Every party — straight to your inbox.
                 </h6>

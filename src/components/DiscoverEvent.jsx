@@ -14,8 +14,42 @@ import {
   MenuList,
   MenuOptionGroup,
 } from '@chakra-ui/react';
+import { useState } from 'react';
+
+const discoveryMenus = {
+  datum: [
+    'Vandaag',
+    'Morgen',
+    'Deze week',
+    'Volgende week',
+    'Deze maand',
+    'Alle datums',
+  ],
+  categorie: ['Dag event', 'Nacht event', 'Festival', 'Alle events'],
+  genre: [
+    'Amapiano',
+    'Classics',
+    'Hip-hop',
+    'Hitjes',
+    'House',
+    'disco',
+    'techno',
+  ],
+  leeftijd: ['18+', '21+', '23+', 'Alle leeftijden'],
+};
 
 const DiscoverEvent = () => {
+  const [discovery, setDiscovery] = useState({
+    datum: 'Datum',
+    categorie: 'Categorie',
+    genre: 'Genre',
+    leeftijd: 'Leeftijd',
+  });
+  const [genreList, setGenreList] = useState(discoveryMenus.genre);
+
+  const genreChange = e => {
+    console.log('genreChange', e);
+  };
   return (
     <div className="custom-container">
       <h2 className="text-white ontdek">Ontdek evenementen</h2>
@@ -31,28 +65,26 @@ const DiscoverEvent = () => {
                   rightIcon={<img src={ArrowDownIcon} alt="arrow down" />}
                 >
                   <span className="selectedOption" id="button1Text">
-                    {' '}
-                    Datum{' '}
+                    {discovery.datum}
                   </span>
                 </MenuButton>
                 <MenuList className="menu-list" pos="absolute" top="8" left="0">
                   <MenuOptionGroup
                     className=""
-                    defaultValue="vandaag"
+                    defaultValue="Vandaag"
                     type="radio"
                   >
-                    <MenuItemOption value="vandaag">Vandaag</MenuItemOption>
-                    <MenuItemOption value="morgen">Morgen</MenuItemOption>
-                    <MenuItemOption value="deze week">Deze week</MenuItemOption>
-                    <MenuItemOption value="volgende week">
-                      Volgende week
-                    </MenuItemOption>
-                    <MenuItemOption value="deze maand">
-                      Deze maand
-                    </MenuItemOption>
-                    <MenuItemOption value="alle datums">
-                      Alle datums
-                    </MenuItemOption>
+                    {discoveryMenus.datum.map((item, index) => (
+                      <MenuItemOption
+                        key={index}
+                        onClick={() =>
+                          setDiscovery({ ...discovery, datum: item })
+                        }
+                        value={item}
+                      >
+                        {item}
+                      </MenuItemOption>
+                    ))}
                   </MenuOptionGroup>
                 </MenuList>
               </Menu>
@@ -66,23 +98,26 @@ const DiscoverEvent = () => {
                   rightIcon={<img src={ArrowDownIcon} alt="arrow down" />}
                 >
                   <span className="selectedOption" id="button1Text">
-                    Categorie
+                    {discovery.categorie}
                   </span>
                 </MenuButton>
                 <MenuList className="menu-list" pos="absolute" top="8" left="0">
                   <MenuOptionGroup
                     className=""
-                    defaultValue="dag event"
+                    defaultValue="Dag event"
                     type="radio"
                   >
-                    <MenuItemOption value="dag event">Dag event</MenuItemOption>
-                    <MenuItemOption value="nacht event">
-                      Nacht event
-                    </MenuItemOption>
-                    <MenuItemOption value="festival">Festival</MenuItemOption>
-                    <MenuItemOption value="alle events">
-                      Alle events
-                    </MenuItemOption>
+                    {discoveryMenus.categorie.map((item, index) => (
+                      <MenuItemOption
+                        key={index}
+                        onClick={() =>
+                          setDiscovery({ ...discovery, categorie: item })
+                        }
+                        value={item}
+                      >
+                        {item}
+                      </MenuItemOption>
+                    ))}
                   </MenuOptionGroup>
                 </MenuList>
               </Menu>
@@ -96,7 +131,7 @@ const DiscoverEvent = () => {
                   rightIcon={<img src={ArrowDownIcon} alt="arrow down" />}
                 >
                   <span className="selectedOption" id="button1Text">
-                    Genre
+                    {discovery.genre}
                   </span>
                 </MenuButton>
                 <MenuList
@@ -105,16 +140,18 @@ const DiscoverEvent = () => {
                   top="8"
                   left="0"
                 >
-                  <MenuOptionGroup className="" type="checkbox">
-                    <MenuItemOption isChecked={true} value="amapiano">
-                      Amapiano
-                    </MenuItemOption>
-                    <MenuItemOption value="classics">Classics</MenuItemOption>
-                    <MenuItemOption value="hip-hop">Hip-hop</MenuItemOption>
-                    <MenuItemOption value="hitjes">Hitjes</MenuItemOption>
-                    <MenuItemOption value="house">House</MenuItemOption>
-                    <MenuItemOption value="disco">Disco</MenuItemOption>
-                    <MenuItemOption value="techno">Techno</MenuItemOption>
+                  <MenuOptionGroup
+                    className=""
+                    type="checkbox"
+                    defaultValue={genreList}
+                    aria-multiselectable
+                    onChange={genreChange}
+                  >
+                    {genreList.map((item, index) => (
+                      <MenuItemOption key={index} value={item}>
+                        {item}
+                      </MenuItemOption>
+                    ))}
                   </MenuOptionGroup>
                 </MenuList>
               </Menu>
@@ -128,17 +165,22 @@ const DiscoverEvent = () => {
                   rightIcon={<img src={ArrowDownIcon} alt="arrow down" />}
                 >
                   <span className="selectedOption" id="button1Text">
-                    Leeftijd
+                    {discovery.leeftijd}
                   </span>
                 </MenuButton>
                 <MenuList className="menu-list" pos="absolute" top="8" left="0">
-                  <MenuOptionGroup className="" defaultValue="18" type="radio">
-                    <MenuItemOption value="18">18+</MenuItemOption>
-                    <MenuItemOption value="21">21+</MenuItemOption>
-                    <MenuItemOption value="23">23+</MenuItemOption>
-                    <MenuItemOption value="alle leeftijden">
-                      Alle leeftijden
-                    </MenuItemOption>
+                  <MenuOptionGroup className="" defaultValue="18+" type="radio">
+                    {discoveryMenus.leeftijd.map((item, index) => (
+                      <MenuItemOption
+                        key={index}
+                        onClick={() =>
+                          setDiscovery({ ...discovery, leeftijd: item })
+                        }
+                        value={item}
+                      >
+                        {item}
+                      </MenuItemOption>
+                    ))}
                   </MenuOptionGroup>
                 </MenuList>
               </Menu>

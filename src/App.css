@@ -273,7 +273,7 @@ header .navigation-menu {
   font-weight: 400;
   position: relative;
   border-radius: 12px;
-  color: #80737a;
+  color: #7f7a81;
   transition: all 0.5s;
   outline: none;
   border: 2px solid transparent;
@@ -283,6 +283,9 @@ header .navigation-menu {
   background-clip: padding-box, border-box;
   animation: bg-hue 2s linear infinite;
   opacity: 0.9;
+}
+.hero-section form.hero-form input::placeholder {
+  color: #7f7a81;
 }
 .hero-section form.hero-form input:focus {
   background-image: linear-gradient(#f2ebef, #f2ebef),
@@ -1127,6 +1130,7 @@ h1.text-center.text-white {
   letter-spacing: -1px;
   margin-top: 64px !important;
   text-transform: capitalize;
+  word-wrap: unset !important;
 }
 .hero-content.tab-content.tab h1.text-center.text-white {
   margin: auto !important;
@@ -1533,6 +1537,9 @@ input.btn.btn-primarys {
   margin-top: 24px;
   cursor: pointer;
 }
+.btn-primarys:focus {
+  outline: none !important;
+}
 .btn-primarys:hover {
   color: #fff;
 }
@@ -1601,7 +1608,7 @@ input#validationCustom01 {
   border-radius: 4px;
   border: 0.5px solid #665c61;
   background: #262123;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
 }
 
 button.btn.btn-dropdown {

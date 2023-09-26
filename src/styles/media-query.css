@@ -423,6 +423,24 @@ footer .footer-service ul.row {
     width: 204px !important;
     min-height: 266px;
   }
+  .custom-arrow .swiper-button-prev {
+    width: 26px;
+    height: 26px;
+  }
+  .custom-arrow .swiper-button-prev::after {
+    width: 22px;
+    height: 52px;
+    margin-left: 2px;
+  }
+  .custom-arrow .swiper-button-next {
+    width: 26px;
+    height: 26px;
+  }
+  .custom-arrow .swiper-button-next::after {
+    width: 22px;
+    height: 52px;
+    margin-right: 2px;
+  }
   .modal-content {
     left: 0;
     right: 0;

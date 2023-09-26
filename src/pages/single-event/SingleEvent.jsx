@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Checkbox, Input } from '@chakra-ui/react';
+import axios from 'axios';
+import { Checkbox, Input, effect } from '@chakra-ui/react';
 
 import { LogoSvg } from '../../utils/svg';
 import ArrowImg from '../../assets/image svg/arrow-left.svg';
@@ -24,7 +25,6 @@ const SingleEvent = ({ token }) => {
     gender: '',
     event: 'SUPER SOCIAL | Chicago Social Club',
     event_id: '29395',
-    token: '',
   });
   const [dobPlaceHolder, setDobPlaceHolder] = useState('Geboortedatum');
 
@@ -78,6 +78,48 @@ const SingleEvent = ({ token }) => {
     // const input = document.getElementById('date');
     // input.setSelectionRange(cursorPosition, cursorPosition);
   };
+
+  const arePropertiesFilled = obj => {
+    for (let key of Object.keys(obj)) {
+      if (obj[key] === '') {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const createEvent = () => {
+    const propertiesFilled = arePropertiesFilled(eFormData);
+    if (propertiesFilled) {
+      eventCreation();
+    } else {
+      window.alert('Empty value exist!');
+    }
+  };
+
+  async function eventCreation() {
+    console.log('ddd', eFormData);
+
+    const response = await axios.post(
+      `${process.env.REACT_APP_BACKEND_API}create.php`,
+      {
+        Firstname: eFormData.first_name,
+        Lastname: eFormData.last_name,
+        Email: eFormData.email,
+        dob: eFormData.dob,
+        gender: eFormData.gender,
+        event: eFormData.event,
+        event_id: eFormData.event_id,
+        token: token,
+      },
+      {
+        headers: {
+          'content-type': 'application/json',
+        },
+      }
+    );
+    console.log('this is create event response', response);
+  }
   return (
     <div>
       <div className="hero-section-single">
@@ -300,7 +342,11 @@ const SingleEvent = ({ token }) => {
                     </div>
 
                     <div className="price-button">
-                      <button className="button openPopupButtons" type="button">
+                      <button
+                        className="button openPopupButtons"
+                        type="button"
+                        onClick={createEvent}
+                      >
                         Koop vriendenticket
                       </button>
                     </div>
@@ -334,7 +380,7 @@ const SingleEvent = ({ token }) => {
             </div>
 
             <div className="price-button">
-              <button className="button openPopupButtons" type="submit">
+              <button className="button openPopupButtons" onClick={createEvent}>
                 Koop vriendenticket
               </button>
             </div>

@@ -1715,18 +1715,44 @@ p.text-white.text-p {
   max-height: 100%;
   width: 100%;
 }
-.custom-arrow .swiper-button-prev,
-.swiper-button-next {
+.custom-arrow .swiper-button-prev {
   background-color: #fff;
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.custom-arrow .swiper-button-prev::after {
+  content: url('assets/image\ svg/right-arrow.svg');
+  transform: rotate(180deg);
+  width: 24px;
+  height: 52px;
 }
 .custom-arrow .swiper-button-next {
   background-color: #fff;
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.custom-arrow .swiper-button-next::after {
+  content: url('assets/image\ svg/right-arrow.svg');
+  width: 24px;
+  height: 52px;
 }
 img.Notification-img {
   position: absolute;

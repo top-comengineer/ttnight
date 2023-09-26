@@ -15,6 +15,7 @@ import RotterdamIcon from '../../assets/image svg/Rotterdam.svg';
 import Cards from '../../components/Cards';
 import DiscoverEvent from '../../components/DiscoverEvent';
 import Carousel from '../../components/Carousel';
+import { API_URL } from '../../utils/config';
 
 const Home = ({ token }) => {
   const [tab, setTab] = useState(1);
@@ -28,7 +29,7 @@ const Home = ({ token }) => {
   }, [token]);
   async function getEventData(token) {
     const response = await axios.post(
-      `${process.env.REACT_APP_BACKEND_API}read.php`,
+      `${API_URL}read.php`,
       { token: token },
       {
         headers: {
@@ -36,7 +37,7 @@ const Home = ({ token }) => {
         },
       }
     );
-    console.log('this is event data');
+    console.log('this is event data', response);
   }
   return (
     <div className="">

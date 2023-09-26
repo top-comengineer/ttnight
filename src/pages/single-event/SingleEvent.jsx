@@ -15,6 +15,7 @@ import UserSinImg from '../../assets/image svg/User-sin.svg';
 import WarningImg from '../../assets/image svg/Warning.svg';
 
 import './SingleEvent.css';
+import { API_URL } from '../../utils/config';
 
 const SingleEvent = ({ token }) => {
   const [eFormData, setEFormData] = useState({
@@ -101,7 +102,7 @@ const SingleEvent = ({ token }) => {
     console.log('ddd', eFormData);
 
     const response = await axios.post(
-      `${process.env.REACT_APP_BACKEND_API}create.php`,
+      `${API_URL}create.php`,
       {
         Firstname: eFormData.first_name,
         Lastname: eFormData.last_name,

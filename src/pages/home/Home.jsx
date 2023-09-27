@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import axios from 'axios';
+import dayjs from 'dayjs';
+import 'dayjs/locale/de';
 
 import {
   LogoSvg,
@@ -16,30 +18,69 @@ import Cards from '../../components/Cards';
 import DiscoverEvent from '../../components/DiscoverEvent';
 import Carousel from '../../components/Carousel';
 import { API_URL } from '../../utils/config';
+import eventItems from '../../utils/mockupData.json';
 
 const Home = ({ token }) => {
   const [tab, setTab] = useState(1);
   const [searchForm, setSearchForm] = useState(false);
   const [smSearchForm, setSmSearchFrom] = useState(false);
-  const [eventData, setEventData] = useState({});
+  const [eventData, setEventData] = useState([]);
+
+  // useEffect(() => {
+  //   // getEventData(token);
+  //   const dataArray = eventItems.items;
+  //   console.log('this is user token, EventData-->', token, dataArray);
+  //   dataArray.forEach(each => {
+  //     each.ConvertedEventDate = dayjs.unix(parseInt(each.EventDate));
+  //     each.ConvertedEventDay = dayjs(dayjs.unix(parseInt(each.EventDate))).get(
+  //       'day'
+  //     );
+  //     each.ConvertedRegistrationFrom = dayjs.unix(
+  //       parseInt(each.RegistrationFrom)
+  //     );
+  //     each.ConvertedRegistrationUntil = dayjs.unix(
+  //       parseInt(each.RegistrationUntil)
+  //     );
+  //   });
+  //   setEventData(dataArray);
+  // }, [token]);
+  // async function getEventData(token) {
+  //   const response = await axios.post(
+  //     `${API_URL}read.php`,
+  //     { token: token },
+  //     {
+  //       headers: {
+  //         'content-type': 'application/json',
+  //         'Access-Control-Allow-Origin': '*',
+  //         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+  //       },
+  //     }
+  //   );
+  //   console.log('this is event data', response);
+  // }
 
   useEffect(() => {
     getEventData(token);
     console.log('this is user token', token);
   }, [token]);
   async function getEventData(token) {
-    const response = await axios.post(
-      `${API_URL}read.php`,
-      { token: token },
-      {
+    const data = {
+      token: token,
+    };
+    try {
+      const result = await fetch(`${API_URL}read.php`, {
+        mode: 'cors',
+        method: 'post',
         headers: {
-          'content-type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+          'Content-Type': 'application/json',
         },
-      }
-    );
-    console.log('this is event data', response);
+        body: JSON.stringify(data),
+      });
+      const resData = await result.json();
+      console.log('result--->', resData);
+    } catch (err) {
+      console.log('Error===>', err);
+    }
   }
   return (
     <div className="">
@@ -303,7 +344,7 @@ const Home = ({ token }) => {
       {/*  */}
 
       <section className="zoek-evenementen">
-        <Cards />
+        <Cards evenData={eventData} />
       </section>
 
       <section>

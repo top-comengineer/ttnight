@@ -98,12 +98,34 @@ const SingleEvent = ({ token }) => {
     }
   };
 
-  async function eventCreation() {
-    console.log('ddd', eFormData);
+  async function getEventData(token) {
+    const data = {
+      token: token,
+    };
+    try {
+      const result = await fetch(`${API_URL}read.php`, {
+        mode: 'cors',
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+        },
+        body: JSON.stringify(data),
+      });
+      const resData = await result.json();
+      console.log('result--->', resData);
+    } catch (err) {
+      console.log('Error===>', err);
+    }
+  }
 
-    const response = await axios.post(
-      `${API_URL}create.php`,
-      {
+  async function eventCreation() {
+    console.log('dddsss', eFormData);
+    const res = await fetch(`${API_URL}create.php`, {
+      mode: 'cors',
+      method: 'post',
+      body: JSON.stringify({
         Firstname: eFormData.first_name,
         Lastname: eFormData.last_name,
         Email: eFormData.email,
@@ -112,15 +134,12 @@ const SingleEvent = ({ token }) => {
         event: eFormData.event,
         event_id: eFormData.event_id,
         token: token,
-      },
-      {
-        headers: {
-          'content-type': 'application/json',
-        },
-      }
-    );
-    console.log('this is create event response', response);
+      }),
+    });
+    const resData = await res.json();
+    console.log('create post request--->', resData);
   }
+
   return (
     <div>
       <div className="hero-section-single">

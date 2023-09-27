@@ -1,6 +1,34 @@
 import { InfoSvg } from '../utils/svg';
+import dayjs from 'dayjs';
+import 'dayjs/locale/de';
 
-const Cards = () => {
+const Cards = ({ evenData }) => {
+  console.log('this is eventData for cards', evenData);
+  // const timestamp = 1687625940; // Replace with your timestamp value
+
+  // // Create a new Date object using the timestamp
+  // const date = new Date(timestamp);
+
+  // // Get the date components
+  // const year = date.getFullYear();
+  // const month = date.getMonth() + 1; // Add 1 to get the actual month (January is 0)
+  // const day = date.getDate();
+  // const days = dayjs(date).get('day');
+
+  // // Get the time components
+  // const hours = date.getHours();
+  // const minutes = date.getMinutes();
+  // const seconds = date.getSeconds();
+
+  // // Format the date and time as per your requirements
+  // const formattedDate = `${year}-${month}-${day}`;
+  // const formattedTime = `${hours}:${minutes}:${seconds}`;
+
+  // // Print the date and time
+  // console.log('Date:', formattedDate);
+  // console.log('Time:', formattedTime);
+  // console.log('Day:', days);
+
   return (
     <div className="custom-container">
       <div className="tab">

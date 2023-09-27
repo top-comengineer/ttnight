@@ -121,7 +121,7 @@ const SingleEvent = ({ token }) => {
   }
 
   async function eventCreation() {
-    console.log('dddsss', eFormData);
+    console.log('eventForm Data', eFormData);
     const res = await fetch(`${API_URL}create.php`, {
       mode: 'cors',
       method: 'post',
@@ -136,8 +136,11 @@ const SingleEvent = ({ token }) => {
         token: token,
       }),
     });
-    const resData = await res.json();
-    console.log('create post request--->', resData);
+    const response = await res.json();
+    console.log('create post request--->', response);
+    if (response.status) {
+      window.alert(response.msg);
+    }
   }
 
   return (

@@ -669,7 +669,7 @@ h3.Vrijdag {
     visibility: visible;
     display: block;
 } */
-.Sould.Out span {
+.sold.Out span {
     color:#FDEAEB; 
     font-family: Public Sans;
     font-size: 14px;

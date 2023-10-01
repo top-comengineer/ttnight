@@ -378,7 +378,7 @@ header .navigation-menu {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 0;
+  /* height: 0; */
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.7);
   transition: height 0.1s ease-out;
@@ -765,7 +765,7 @@ h3.Vrijdag {
     visibility: visible;
     display: block;
 } */
-.Sould.Out span {
+.sold.Out span {
   color: #fdeaeb;
   font-family: Public Sans;
   font-size: 14px;

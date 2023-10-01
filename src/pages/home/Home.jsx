@@ -1,8 +1,5 @@
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
-import axios from 'axios';
-import dayjs from 'dayjs';
-import 'dayjs/locale/de';
 
 import {
   LogoSvg,
@@ -18,65 +15,58 @@ import Cards from '../../components/Cards';
 import DiscoverEvent from '../../components/DiscoverEvent';
 import Carousel from '../../components/Carousel';
 import { API_URL } from '../../utils/config';
-import eventItems from '../../utils/mockupData.json';
 
 const Home = ({ token }) => {
   const [tab, setTab] = useState(1);
   const [searchForm, setSearchForm] = useState(false);
   const [smSearchForm, setSmSearchFrom] = useState(false);
   const [eventData, setEventData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
 
-  // useEffect(() => {
-  //   // getEventData(token);
-  //   const dataArray = eventItems.items;
-  //   console.log('this is user token, EventData-->', token, dataArray);
-  //   dataArray.forEach(each => {
-  //     each.ConvertedEventDate = dayjs.unix(parseInt(each.EventDate));
-  //     each.ConvertedEventDay = dayjs(dayjs.unix(parseInt(each.EventDate))).get(
-  //       'day'
-  //     );
-  //     each.ConvertedRegistrationFrom = dayjs.unix(
-  //       parseInt(each.RegistrationFrom)
-  //     );
-  //     each.ConvertedRegistrationUntil = dayjs.unix(
-  //       parseInt(each.RegistrationUntil)
-  //     );
-  //   });
-  //   setEventData(dataArray);
-  // }, [token]);
-  // async function getEventData(token) {
-  //   const response = await axios.post(
-  //     `${API_URL}read.php`,
-  //     { token: token },
-  //     {
-  //       headers: {
-  //         'content-type': 'application/json',
-  //         'Access-Control-Allow-Origin': '*',
-  //         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-  //       },
-  //     }
-  //   );
-  //   console.log('this is event data', response);
-  // }
+  const handleSearch = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+
+    // Perform search logic here and update the searchResults state accordingly
+    // You can use APIs, filter data, or any other search mechanism
+
+    // For example, let's assume you have a list of items to search from
+    const items = [
+      { title: 'Charlee-Lovelee', description: '8 Juni 23:00 + Gastenlijst' },
+      { title: 'Freaky-Supperclud', description: '8 Juni 23:00 + Gastenlijst' },
+      { title: 'Mimi-Chin Chin', description: '8 Juni 23:00 + Gastenlijst' },
+      { title: 'Super Social-Chicago Social Club', description: '8 Juni 23:00 + Vriendenligst' },
+    ];
+
+    const filteredResults = items.filter((item) =>
+      item.title.toLowerCase().includes(query.toLowerCase())
+    );
+
+    setSearchResults(filteredResults);
+    console.log(searchResults);
+  };
 
   useEffect(() => {
     getEventData(token);
     console.log('this is user token', token);
   }, [token]);
+  
   async function getEventData(token) {
     const data = {
       token: token,
     };
     try {
       const result = await fetch(`${API_URL}read.php`, {
-        mode: 'cors',
         method: 'post',
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
       const resData = await result.json();
+      setEventData(resData.items);
       console.log('result--->', resData);
     } catch (err) {
       console.log('Error===>', err);
@@ -126,81 +116,33 @@ const Home = ({ token }) => {
                 autoComplete="off"
                 name="search"
                 id="showModalBtnbottom"
+                value={searchQuery}
                 onFocus={() => setSearchForm(true)}
                 onBlur={() => setSearchForm(false)}
                 onClick={() => setSmSearchFrom(true)}
+                onChange={handleSearch}
               />
             </form>
-            <div
-              className={clsx(
-                'search-information-box destop',
-                searchForm ? 'active' : ''
-              )}
-            >
-              <div className="main-box">
-                <a href="/single-event">
-                  <div className="search-information-service serach-info">
-                    <h6>Trending</h6>
-
-                    <div className="row">
-                      <div className="search-information-image">
-                        <TrendingCheckSvg />
-                      </div>
-
-                      <div className="search-information-content">
-                        <h5>Charlee-Lovelee</h5>
-                        <p>8 Juni 23:00 + Gastenlijst</p>
-                      </div>
+            <div className={clsx('search-information-box desktop', searchForm ? 'active':'')}>
+              <div className='main-box'>
+                {searchResults.map((result, index) => (
+                <a href='/single-event'>
+                  <div className='search-information-service search-info row'>
+                    <div className="search-information-image">
+                      <TrendingStarSvg />
+                    </div>
+                    <div key={index} className="search-information-content">
+                      <h5>{result.title}</h5>
+                      <p>{result.description}</p>
                     </div>
                   </div>
                 </a>
-                <a href="/single-event">
-                  <div className="search-information-service">
-                    <div className="row">
-                      <div className="search-information-image">
-                        <TrendingStarSvg />
-                      </div>
-
-                      <div className="search-information-content">
-                        <h5>Freaky-Supperclud</h5>
-                        <p>8 Juni 23:00 + Gastenlijst</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="/single-event">
-                  <div className="search-information-service">
-                    <div className="row">
-                      <div className="search-information-image">
-                        <TrendingCheckSvg />
-                      </div>
-
-                      <div className="search-information-content">
-                        <h5>Mimi-Chin Chin</h5>
-                        <p>8 Juni 23:00 + Gastenlijst</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="/single-event">
-                  <div className="search-information-service social-club-information">
-                    <div className="row">
-                      <div className="search-information-image">
-                        <TrendingStarSvg />
-                      </div>
-                      <div className="search-information-content">
-                        <h5>Super Social-Chicago Social Club</h5>
-                        <p>8 Juni 23:00 + Vriendenligst</p>
-                      </div>
-                    </div>
-                  </div>
-                </a>
+                ))}
               </div>
             </div>
-
             <div
               id="modals"
-              className={clsx('modals', smSearchForm ? 'block h-full' : '')}
+              className={clsx('modals', smSearchForm ? 'h-full' : 'h-0')}
             >
               <span className="closes" onClick={() => setSmSearchFrom(false)}>
                 X
@@ -336,15 +278,13 @@ const Home = ({ token }) => {
           </div>
         </div>
       </div>
-      {/* Ontdek envenment */}
+      
       <section>
         <DiscoverEvent />
       </section>
 
-      {/*  */}
-
       <section className="zoek-evenementen">
-        <Cards evenData={eventData} />
+        <Cards eventData={eventData} />
       </section>
 
       <section>

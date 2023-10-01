@@ -1,6 +1,32 @@
 {
   "items": [
     {
+      "EventId": 32897,
+      "EvenName": "MIMI",
+      "Trending": "Yes",
+      "EvenementImages": " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
+      "OriginalPrice": "15",
+      "OurPrice": "10",
+      "TheClub": "Chin Chin",
+      "OnlineSoon": "NO",
+      "Description": "",
+      "EventDate": "1696546800",
+      "RegistrationFrom": "1695877200",
+      "RegistrationUntil": "1696546800",
+      "MinimalAge": "21",
+      "EventCategorie": "Gastenlijst",
+      "TicketLink": "",
+      "OutofStock": {
+        "sold-out": "false"
+      },
+      "WhatsappLink": "",
+      "StelzLink": "",
+      "dporiginal": "",
+      "timeofday": "Nacht event",
+      "GenreList": "Classics,Hitjes,House,RnB",
+      "CityName": "Amsterdam"
+    },
+    {
       "EventId": 31177,
       "EvenName": "G-HOUSE SPECIAL | Thuishaven",
       "Trending": "Yes",

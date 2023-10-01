@@ -27,57 +27,40 @@ const SingleEvent = ({ token }) => {
     event: 'SUPER SOCIAL | Chicago Social Club',
     event_id: '29395',
   });
-  const [dobPlaceHolder, setDobPlaceHolder] = useState('Geboortedatum');
 
+  const [dobPlaceHolder, setDobPlaceHolder] = useState('Geboortedatum')
   const onChange = e => {
     setEFormData({ ...eFormData, [e.target.name]: e.target.value });
   };
-
-  const focusDob = () => {
-    setDobPlaceHolder('dd-mm-jjjj');
-  };
-
-  const blurDob = () => {
-    setDobPlaceHolder('Geboortedatum');
-  };
-
+  
   const changeDob = e => {
     const value = e.target.value;
-    let formattedValue = value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
-    let placeholder = 'dd-mm-jjjj';
-    let cursorPosition = formattedValue.length;
-
-    // Format day (dd)
-    if (formattedValue.length >= 2) {
-      formattedValue =
-        formattedValue.slice(0, 2) + '-' + formattedValue.slice(2);
-      placeholder = formattedValue + placeholder.slice(3);
-      console.log('here is day', formattedValue, placeholder.slice(3));
-
-      cursorPosition = 3;
+    const placeholder = 'dd-mm-yyyy';
+    let formattedValue = '';
+    
+    for (let i = 0; i < value.length; i++) {
+      if (placeholder[i] === '-') {
+        formattedValue += '-';
+      } else if (/[0-9]/g.test(value[i])) {
+        formattedValue += value[i];
+      } else {
+        formattedValue += placeholder[i];
+      }
     }
+    const remainingPlaceholder = placeholder.slice(formattedValue.length);
+    const updatedPlaceholder = formattedValue + remainingPlaceholder;
+    
+    setEFormData(eFormData => ({ ...eFormData, dob: formattedValue }));
+    setDobPlaceHolder(updatedPlaceholder);
+    console.log(dobPlaceHolder);
+  }
 
-    // Format month (mm)
-    if (formattedValue.length >= 5) {
-      formattedValue =
-        formattedValue.slice(0, 5) + '-' + formattedValue.slice(5);
-      placeholder = placeholder.slice(0, 3) + '-mm-' + placeholder.slice(6);
-      console.log('here is month', formattedValue, placeholder);
+  const focusDob = e => {
+    setDobPlaceHolder('dd-mm-yyyy');
+  };
 
-      cursorPosition = 6;
-    }
-
-    // Format year (jjjj)
-    if (formattedValue.length > 10) {
-      formattedValue = formattedValue.slice(0, 10);
-      console.log('here is year', formattedValue, placeholder);
-    }
-
-    setEFormData({ ...eFormData, dob: formattedValue });
-    setDobPlaceHolder(placeholder);
-
-    // const input = document.getElementById('date');
-    // input.setSelectionRange(cursorPosition, cursorPosition);
+  const blurDob = e => {
+    setDobPlaceHolder('Geboortedatum');
   };
 
   const arePropertiesFilled = obj => {
@@ -295,18 +278,17 @@ const SingleEvent = ({ token }) => {
                 <div className="date event-sec-form">
                   <Input
                     type="text"
-                    maxLength="10"
                     id="date"
                     name="dob"
                     value={eFormData.dob}
                     inputMode="numeric"
                     className="sin"
+                    maxLength="10"
                     placeholder={dobPlaceHolder}
                     onFocus={focusDob}
                     onBlur={blurDob}
                     onChange={changeDob}
                   />
-                  {/* <span>jaar</span> */}
                 </div>
                 <div className="geslacht event-sec-form sin">
                   <select

@@ -39,9 +39,9 @@ const Cards = (props) => {
     const originDate = item.EventDate;
     const date = new Date(originDate * 1000);
     
-    const formattedDate = date.toLocaleDateString('en-GB', {
-      day: '2-digit',
+    const formattedDate = date.toLocaleDateString('en-US', {
       month: '2-digit',
+      day: '2-digit',
       year: 'numeric'
     });
   
@@ -49,9 +49,13 @@ const Cards = (props) => {
     return { ...item, EventDate: formattedDate, DayOfWeek: dayOfWeek };
   });
   const today = new Date();
+  const day = String(today.getDate()).padStart(2, '0');
+  const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+  const year = today.getFullYear();
   const hour = today.getHours();
   const minute = today.getMinutes();
   const second = today.getSeconds();
+  const todayDate = `${month}/${day}/${year}`;
   const todayTime = `${hour}:${minute}:${second}`;
   const fridayDate = formattedItems.find(item => item.DayOfWeek === 5)?.EventDate;
   const saturdayDate = formattedItems.find(item => item.DayOfWeek === 6)?.EventDate;
@@ -75,7 +79,7 @@ const Cards = (props) => {
     setResultItems(newFilteredItems);
   }, [discovery]);
 
-  console.log(resultItems);
+  console.log(resultItems, todayDate);
 
   return (
     <div className="custom-container">
@@ -235,10 +239,10 @@ const Cards = (props) => {
           </div>
         </div>
         <div className="tab-body">
-          <div className="event-box">
+          <div className="row event-box">
             {resultItems.map(item => (
-              item.DayOfWeek === 1 && (
-                <div className="row double">
+              item.EventDate === todayDate && (
+                <div className="">
                   <Card items={[item]} />
                 </div>
               )
@@ -259,10 +263,10 @@ const Cards = (props) => {
           </div>
         </div>
         <div className="tab-body">
-          <div className="event-box">
+          <div className="row event-box">
             {resultItems.map(item => (
               item.DayOfWeek === 5 && (
-                <div className="row double">
+                <div className="">
                   <Card items={[item]} />
                 </div>
               )
@@ -283,10 +287,10 @@ const Cards = (props) => {
           </div>
         </div>
         <div className="tab-body">
-          <div className="event-box">
+          <div className="row event-box">
             {resultItems.map(item => (
               item.DayOfWeek === 6 && (
-                <div className="row double">
+                <div className="">
                   <Card items={[item]} />
                 </div>
               )
@@ -307,10 +311,10 @@ const Cards = (props) => {
           </div>
         </div>
         <div className="tab-body">
-          <div className="event-box">
+          <div className="row event-box">
             {resultItems.map(item => (
               item.DayOfWeek === 0 && (
-                <div className="row double">
+                <div className="">
                   <Card items={[item]} />
                 </div>
               )

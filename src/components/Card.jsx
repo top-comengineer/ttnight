@@ -2,10 +2,11 @@ import React from "react";
 import { InfoSvg } from '../utils/svg';
 
 const Card = (props) => {
+  
   return (
     <>
       {props.items.map((item, index) => (
-        <div className="event-content text-white doubles" key={index}>
+        <div className="event-content text-white" key={index} style={{ width: "264.38px",height:"132px" }}>
           <a href="/single-event">
             <h5 className="Charlee">{item.TheClub}</h5>
             <h6 className="text-light-gray">{item.CityName}</h6>

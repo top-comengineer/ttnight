@@ -36,6 +36,7 @@ body {
 .row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .row {
   margin-right: -0px !important;
@@ -767,6 +768,7 @@ h3.Vrijdag {
     display: block;
 } */
 .sold.Out span {
+  display: flex;
   color: #fdeaeb;
   font-family: Public Sans;
   font-size: 14px;

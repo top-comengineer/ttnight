@@ -21,10 +21,18 @@ const discoveryMenus = {
   datum: ['Vandaag','Morgen','Deze week','Volgende week','Deze maand','Alle datums'],
   categorie: ['Dag event', 'Nacht event', 'Festival', 'Alle events'],
   genre: ['Amapiano','Classics','Hip-hop','Hitjes','House','disco','techno'],
-  leeftijd: ['18+', '21+', '23+', 'Alle leeftijden'],
+  leeftijd: ['18', '21', '23', 'Alle leeftijden'],
 };
 
 const Cards = (props) => {
+  const [resultItems, setResultItems] = useState([]);
+  const [discovery, setDiscovery] = useState({
+    datum: 'Datum',
+    categorie: 'Categorie',
+    genre: 'Genre',
+    leeftijd: 'Leeftijd',
+  });
+  const [genreList, setGenreList] = useState([]);
   const items = props.eventData
   // format items according to the dayofweek
   const formattedItems = items.map(item => {
@@ -40,7 +48,6 @@ const Cards = (props) => {
     const dayOfWeek = date.getDay(); // Get the day of the week as a number (0-6)
     return { ...item, EventDate: formattedDate, DayOfWeek: dayOfWeek };
   });
-  
   const today = new Date();
   const hour = today.getHours();
   const minute = today.getMinutes();
@@ -49,22 +56,12 @@ const Cards = (props) => {
   const fridayDate = formattedItems.find(item => item.DayOfWeek === 5)?.EventDate;
   const saturdayDate = formattedItems.find(item => item.DayOfWeek === 6)?.EventDate;
   const sundayDate = formattedItems.find(item => item.DayOfWeek === 0)?.EventDate;
-
-  const [discovery, setDiscovery] = useState({
-    datum: 'Datum',
-    categorie: 'Categorie',
-    genre: 'Genre',
-    leeftijd: 'Leeftijd',
-  });
-  const [genreList, setGenreList] = useState(discoveryMenus.genre);
-
+  
   const genreChange = e => {
-    console.log('genreChange', e);
+    setGenreList(e);
   };
-
+  console.log(discovery, genreList);
   // filter items by 4 options
-  const [resultItems, setResultItems] = useState(formattedItems);
-
   useEffect(() => {
     const newFilteredItems = formattedItems.filter(item => {
       return (
@@ -174,12 +171,17 @@ const Cards = (props) => {
                     <MenuOptionGroup
                       className=""
                       type="checkbox"
-                      defaultValue={genreList}
+                      value={genreList}
                       aria-multiselectable
                       onChange={genreChange}
                     >
-                      {genreList.map((item, index) => (
-                        <MenuItemOption key={index} value={item}>
+                      {discoveryMenus.genre.map((item, index) => (
+                        <MenuItemOption 
+                          key={index} 
+                          value={item} 
+                          onClick={()=>
+                            setDiscovery({ ...discovery, genre: item })}
+                        >
                           {item}
                         </MenuItemOption>
                       ))}

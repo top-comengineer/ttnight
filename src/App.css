@@ -756,7 +756,7 @@ h3.Vrijdag {
   transition: all 0.5s;
 }
 .zoek-evenementen .tooltipss {
-  position: relative;
+  /* position: relative; */
   width: fit-content;
   display: flex;
   margin-top: 14px;

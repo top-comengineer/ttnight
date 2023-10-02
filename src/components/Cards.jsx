@@ -1,9 +1,32 @@
 import 'dayjs/locale/de';
 import '../../src/utils/mockupData.json';
+import DatumIcon from '../assets/image svg/Calendar-N.svg';
+import CategoryIcon from '../assets/image svg/party.svg';
+import GenreIcon from '../assets/image svg/Music.svg';
+import UserIcon from '../assets/image svg/User.svg';
+
+import ArrowDownIcon from '../assets/image svg/chevron down.svg';
+import {
+  Button,
+  Menu,
+  MenuButton,
+  MenuItemOption,
+  MenuList,
+  MenuOptionGroup,
+} from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
 import Card from './Card';
+
+const discoveryMenus = {
+  datum: ['Vandaag','Morgen','Deze week','Volgende week','Deze maand','Alle datums'],
+  categorie: ['Dag event', 'Nacht event', 'Festival', 'Alle events'],
+  genre: ['Amapiano','Classics','Hip-hop','Hitjes','House','disco','techno'],
+  leeftijd: ['18+', '21+', '23+', 'Alle leeftijden'],
+};
 
 const Cards = (props) => {
   const items = props.eventData
+  // format items according to the dayofweek
   const formattedItems = items.map(item => {
     const originDate = item.EventDate;
     const date = new Date(originDate * 1000);
@@ -22,14 +45,181 @@ const Cards = (props) => {
   const hour = today.getHours();
   const minute = today.getMinutes();
   const second = today.getSeconds();
-  const todayDate = `${hour}:${minute}:${second}`;
+  const todayTime = `${hour}:${minute}:${second}`;
   const fridayDate = formattedItems.find(item => item.DayOfWeek === 5)?.EventDate;
   const saturdayDate = formattedItems.find(item => item.DayOfWeek === 6)?.EventDate;
   const sundayDate = formattedItems.find(item => item.DayOfWeek === 0)?.EventDate;
-  console.log(today);
+
+  const [discovery, setDiscovery] = useState({
+    datum: 'Datum',
+    categorie: 'Categorie',
+    genre: 'Genre',
+    leeftijd: 'Leeftijd',
+  });
+  const [genreList, setGenreList] = useState(discoveryMenus.genre);
+
+  const genreChange = e => {
+    console.log('genreChange', e);
+  };
+
+  // filter items by 4 options
+  const [resultItems, setResultItems] = useState(formattedItems);
+
+  useEffect(() => {
+    const newFilteredItems = formattedItems.filter(item => {
+      return (
+        item.EventDate === discovery.datum ||
+        item.timeofday === discovery.categorie ||
+        item.GenreList === discovery.genre ||
+        item.MinimalAge === discovery.leeftijd
+      );
+    });
+  
+    setResultItems(newFilteredItems);
+  }, [discovery]);
+
+  console.log(resultItems);
 
   return (
     <div className="custom-container">
+      <div className="filter-section">
+        <h2 className="text-white ontdek">Ontdek evenementen</h2>
+        <div className="wrapper">
+          <div className="external-dropdown">
+            <div className="outer">
+              <div className="side">
+                <Menu>
+                  <MenuButton
+                    as={Button}
+                    className="btn btn-dropdown dropdown-toggle"
+                    leftIcon={<img src={DatumIcon} alt="datum" />}
+                    rightIcon={<img src={ArrowDownIcon} alt="arrow down" />}
+                  >
+                    <span className="selectedOption" id="button1Text">
+                      {discovery.datum}
+                    </span>
+                  </MenuButton>
+                  <MenuList className="menu-list" pos="absolute" top="8" left="0">
+                    <MenuOptionGroup
+                      className=""
+                      defaultValue="Vandaag"
+                      type="radio"
+                    >
+                      {discoveryMenus.datum.map((item, index) => (
+                        <MenuItemOption
+                          key={index}
+                          onClick={() =>
+                            setDiscovery({ ...discovery, datum: item })
+                          }
+                          value={item}
+                        >
+                          {item}
+                        </MenuItemOption>
+                      ))}
+                    </MenuOptionGroup>
+                  </MenuList>
+                </Menu>
+              </div>
+              <div className="side">
+                <Menu>
+                  <MenuButton
+                    as={Button}
+                    className="btn btn-dropdown dropdown-toggle"
+                    leftIcon={<img src={CategoryIcon} alt="datum" />}
+                    rightIcon={<img src={ArrowDownIcon} alt="arrow down" />}
+                  >
+                    <span className="selectedOption" id="button1Text">
+                      {discovery.categorie}
+                    </span>
+                  </MenuButton>
+                  <MenuList className="menu-list" pos="absolute" top="8" left="0">
+                    <MenuOptionGroup
+                      className=""
+                      defaultValue="Dag event"
+                      type="radio"
+                    >
+                      {discoveryMenus.categorie.map((item, index) => (
+                        <MenuItemOption
+                          key={index}
+                          onClick={() =>
+                            setDiscovery({ ...discovery, categorie: item })
+                          }
+                          value={item}
+                        >
+                          {item}
+                        </MenuItemOption>
+                      ))}
+                    </MenuOptionGroup>
+                  </MenuList>
+                </Menu>
+              </div>
+              <div className="side">
+                <Menu closeOnSelect={false}>
+                  <MenuButton
+                    as={Button}
+                    className="btn btn-dropdown dropdown-toggle"
+                    leftIcon={<img src={GenreIcon} alt="datum" />}
+                    rightIcon={<img src={ArrowDownIcon} alt="arrow down" />}
+                  >
+                    <span className="selectedOption" id="button1Text">
+                      {discovery.genre}
+                    </span>
+                  </MenuButton>
+                  <MenuList
+                    className="menu-list menu-checkbox-list"
+                    pos="absolute"
+                    top="8"
+                    left="0"
+                  >
+                    <MenuOptionGroup
+                      className=""
+                      type="checkbox"
+                      defaultValue={genreList}
+                      aria-multiselectable
+                      onChange={genreChange}
+                    >
+                      {genreList.map((item, index) => (
+                        <MenuItemOption key={index} value={item}>
+                          {item}
+                        </MenuItemOption>
+                      ))}
+                    </MenuOptionGroup>
+                  </MenuList>
+                </Menu>
+              </div>
+              <div className="side">
+                <Menu>
+                  <MenuButton
+                    as={Button}
+                    className="btn btn-dropdown dropdown-toggle"
+                    leftIcon={<img src={UserIcon} alt="datum" />}
+                    rightIcon={<img src={ArrowDownIcon} alt="arrow down" />}
+                  >
+                    <span className="selectedOption" id="button1Text">
+                      {discovery.leeftijd}
+                    </span>
+                  </MenuButton>
+                  <MenuList className="menu-list" pos="absolute" top="8" left="0">
+                    <MenuOptionGroup className="" defaultValue="18+" type="radio">
+                      {discoveryMenus.leeftijd.map((item, index) => (
+                        <MenuItemOption
+                          key={index}
+                          onClick={() =>
+                            setDiscovery({ ...discovery, leeftijd: item })
+                          }
+                          value={item}
+                        >
+                          {item}
+                        </MenuItemOption>
+                      ))}
+                    </MenuOptionGroup>
+                  </MenuList>
+                </Menu>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="tab">
         <div className="tab-header">
           <div className="row justify-content-between text-white">
@@ -38,13 +228,13 @@ const Cards = (props) => {
             </div>
 
             <div className="date">
-              <h5 className="date">{todayDate}</h5>
+              <h5 className="date">{todayTime}</h5>
             </div>
           </div>
         </div>
         <div className="tab-body">
           <div className="event-box">
-            {formattedItems.map(item => (
+            {resultItems.map(item => (
               item.DayOfWeek === 1 && (
                 <div className="row double">
                   <Card items={[item]} />
@@ -68,7 +258,7 @@ const Cards = (props) => {
         </div>
         <div className="tab-body">
           <div className="event-box">
-            {formattedItems.map(item => (
+            {resultItems.map(item => (
               item.DayOfWeek === 5 && (
                 <div className="row double">
                   <Card items={[item]} />
@@ -92,7 +282,7 @@ const Cards = (props) => {
         </div>
         <div className="tab-body">
           <div className="event-box">
-            {formattedItems.map(item => (
+            {resultItems.map(item => (
               item.DayOfWeek === 6 && (
                 <div className="row double">
                   <Card items={[item]} />
@@ -116,7 +306,7 @@ const Cards = (props) => {
         </div>
         <div className="tab-body">
           <div className="event-box">
-            {formattedItems.map(item => (
+            {resultItems.map(item => (
               item.DayOfWeek === 0 && (
                 <div className="row double">
                   <Card items={[item]} />

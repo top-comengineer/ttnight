@@ -12,7 +12,7 @@ import './Home.css';
 import AmsterdamIcon from '../../assets/image svg/Amsterdam.svg';
 import RotterdamIcon from '../../assets/image svg/Rotterdam.svg';
 import Cards from '../../components/Cards';
-import DiscoverEvent from '../../components/DiscoverEvent';
+// import DiscoverEvent from '../../components/DiscoverEvent';
 import Carousel from '../../components/Carousel';
 import { API_URL } from '../../utils/config';
 
@@ -51,7 +51,7 @@ const Home = ({ token }) => {
     },
     {
       EventId: 32897,
-      EvenName: "MIMI",
+      EvenName: "FISSA | Oliva",
       Trending: "Yes",
       EvenementImages: " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
       OriginalPrice: "15",
@@ -62,7 +62,7 @@ const Home = ({ token }) => {
       EventDate: "1696546800",
       RegistrationFrom: "1695877200",
       RegistrationUntil: "1696546800",
-      MinimalAge: "21",
+      MinimalAge: "18",
       EventCategorie: "Gastenlijst",
       TicketLink: "",
       OutofStock: {
@@ -88,7 +88,7 @@ const Home = ({ token }) => {
       EventDate: "1696546800",
       RegistrationFrom: "1695877200",
       RegistrationUntil: "1696546800",
-      MinimalAge: "21",
+      MinimalAge: "18",
       EventCategorie: "Gastenlijst",
       TicketLink: "",
       OutofStock: {
@@ -103,7 +103,7 @@ const Home = ({ token }) => {
     },
     {
       EventId: 32897,
-      EvenName: "MIMI",
+      EvenName: "TROPICAL GARDEN | Tiwya",
       Trending: "Yes",
       EvenementImages: " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
       OriginalPrice: "15",
@@ -140,7 +140,7 @@ const Home = ({ token }) => {
       EventDate: "1687906800",
       RegistrationFrom: "1695877200",
       RegistrationUntil: "1696546800",
-      MinimalAge: "21",
+      MinimalAge: "23",
       EventCategorie: "Gastenlijst",
       TicketLink: "",
       OutofStock: {
@@ -175,7 +175,7 @@ const Home = ({ token }) => {
       WhatsappLink: "",
       StelzLink: "",
       dporiginal: "",
-      timeofday: "Nacht event",
+      timeofday: "Festival event",
       GenreList: "Classics,Hitjes,House,RnB",
       CityName: "Rotterdam"
     },
@@ -201,7 +201,7 @@ const Home = ({ token }) => {
       WhatsappLink: "",
       StelzLink: "",
       dporiginal: "",
-      timeofday: "Nacht event",
+      timeofday: "Dag event",
       GenreList: "Classics,Hitjes,House,RnB",
       CityName: "Rotterdam"
     },
@@ -224,7 +224,7 @@ const Home = ({ token }) => {
 
   useEffect(() => {
     getEventData(token);
-    console.log('this is user token', token);
+    // console.log('this is user token', token);
   }, [token]);
   
   async function getEventData(token) {
@@ -458,9 +458,9 @@ const Home = ({ token }) => {
         </div>
       </div>
       
-      <section>
-        <DiscoverEvent />
-      </section>
+      {/* <section>
+        <DiscoverEvent eventData={eventData}/>
+      </section> */}
 
       <section className="zoek-evenementen">
         <Cards eventData={eventData} />

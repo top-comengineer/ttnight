@@ -2,7 +2,6 @@ import React from "react";
 import { InfoSvg } from '../utils/svg';
 
 const Card = (props) => {
-  console.log(props.items.EventDate);
   return (
     <>
       {props.items.map((item, index) => (

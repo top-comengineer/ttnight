@@ -1,47 +1,30 @@
 import React from "react";
 import { InfoSvg } from '../utils/svg';
 
-const Card = () => {
- 
-  const items = [
-    {
-      name: 'Happy feelings 16:00',
-      location: 'Thuishaven, Amsterdam',
-      soldOut: true,
-    },
-    {
-      name: 'Happy feelings 16:00',
-      location: 'Thuishaven, Amsterdam',
-      time: '16:00',
-      ageRestriction: '18+',
-      tooltipText: 'We zetten jouw naam op de gastenlijst, zodat je gratis of goedkoper naar binnen kan.',
-      tooltipType: 'Gastenlijst',
-    },
-    // Add more event objects as needed
-  ];
-
+const Card = (props) => {
+  console.log(props.items.EventDate);
   return (
     <>
-      {items.map((item, index) => (
+      {props.items.map((item, index) => (
         <div className="event-content text-white doubles" key={index}>
           <a href="/single-event">
-            <h5 className="Charlee">{item.name}</h5>
-            <h6 className="text-light-gray">{item.location}</h6>
-            {item.soldOut ? (
+            <h5 className="Charlee">{item.TheClub}</h5>
+            <h6 className="text-light-gray">{item.CityName}</h6>
+            {item.OutofStock.sold_out ==='true' ? (
               <div className="sold Out">
                 <span>Sold out</span>
               </div>
             ) : (
               <div className="tooltipss">
-                <span>{item.time}</span>
-                <span>{item.ageRestriction}</span>
+                <span>{item.EventDate}</span>
+                <span>{item.MinimalAge}</span>
                 <div className="tool">
-                  <span className="gen">{item.tooltipType}</span>
+                  <span className="gen">{item.EventCategorie}</span>
                   <span className="tooltips">
                     {' '}
                     <InfoSvg />
                     <span className="tooltiptext tooltipText wa Vriendenticket">
-                      {item.tooltipText}
+                      {item.GenreList}
                     </span>
                   </span>
                 </div>

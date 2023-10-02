@@ -466,6 +466,7 @@ h2.text-white.ontdek {
 .hero-section .search-information-service {
   padding: 0px 24px 16px 24px;
   background-color: #f2ebef;
+  border-radius: 12px;
 }
 
 .hero-section .social-club-information {

@@ -50,7 +50,7 @@ const DiscoverEvent = () => {
   const genreChange = e => {
     console.log('genreChange', e);
   };
-  // console.log(discovery);
+  console.log(discovery);
   return (
     <div className="custom-container">
       <h2 className="text-white ontdek">Ontdek evenementen</h2>

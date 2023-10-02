@@ -20,10 +20,193 @@ const Home = ({ token }) => {
   const [tab, setTab] = useState(1);
   const [searchForm, setSearchForm] = useState(false);
   const [smSearchForm, setSmSearchFrom] = useState(false);
-  const [eventData, setEventData] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-
+  const [eventData, setEventData] = useState([
+    {
+      EventId: 32897,
+      EvenName: "MIMI",
+      Trending: "Yes",
+      EvenementImages: " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
+      OriginalPrice: "15",
+      OurPrice: "10",
+      TheClub: "Chin Chin",
+      OnlineSoon: "NO",
+      Description: "Friends Guestlist | €10 in plaats van €15 | RnB, Hits & Classics",
+      EventDate: "1696546800",
+      RegistrationFrom: "1695877200",
+      RegistrationUntil: "1696546800",
+      MinimalAge: "21",
+      EventCategorie: "Gastenlijst",
+      TicketLink: "",
+      OutofStock: {
+        sold_out: "false"
+      },
+      WhatsappLink: "",
+      StelzLink: "",
+      dporiginal: "",
+      timeofday: "Dag event",
+      GenreList: "Classics,Hitjes,House,RnB",
+      CityName: "Amsterdam"
+    },
+    {
+      EventId: 32897,
+      EvenName: "MIMI",
+      Trending: "Yes",
+      EvenementImages: " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
+      OriginalPrice: "15",
+      OurPrice: "10",
+      TheClub: "Chin Chin",
+      OnlineSoon: "NO",
+      Description: "Friends Guestlist | €10 in plaats van €15 | RnB, Hits & Classics",
+      EventDate: "1696546800",
+      RegistrationFrom: "1695877200",
+      RegistrationUntil: "1696546800",
+      MinimalAge: "21",
+      EventCategorie: "Gastenlijst",
+      TicketLink: "",
+      OutofStock: {
+        sold_out: "false"
+      },
+      WhatsappLink: "",
+      StelzLink: "",
+      dporiginal: "",
+      timeofday: "Festival",
+      GenreList: "Classics,Hitjes,House,RnB",
+      CityName: "Amsterdam"
+    },
+    {
+      EventId: 32897,
+      EvenName: "MIMI",
+      Trending: "Yes",
+      EvenementImages: " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
+      OriginalPrice: "15",
+      OurPrice: "10",
+      TheClub: "Chin Chin",
+      OnlineSoon: "NO",
+      Description: "Friends Guestlist | €10 in plaats van €15 | RnB, Hits & Classics",
+      EventDate: "1696546800",
+      RegistrationFrom: "1695877200",
+      RegistrationUntil: "1696546800",
+      MinimalAge: "21",
+      EventCategorie: "Gastenlijst",
+      TicketLink: "",
+      OutofStock: {
+        sold_out: "false"
+      },
+      WhatsappLink: "",
+      StelzLink: "",
+      dporiginal: "",
+      timeofday: "Alle event",
+      GenreList: "Classics,Hitjes,House,RnB",
+      CityName: "Amsterdam"
+    },
+    {
+      EventId: 32897,
+      EvenName: "MIMI",
+      Trending: "Yes",
+      EvenementImages: " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
+      OriginalPrice: "15",
+      OurPrice: "10",
+      TheClub: "Chin Chin",
+      OnlineSoon: "NO",
+      Description: "Friends Guestlist | €10 in plaats van €15 | RnB, Hits & Classics",
+      EventDate: "1696546800",
+      RegistrationFrom: "1695877200",
+      RegistrationUntil: "1696546800",
+      MinimalAge: "21",
+      EventCategorie: "Gastenlijst",
+      TicketLink: "",
+      OutofStock: {
+        sold_out: "false"
+      },
+      WhatsappLink: "",
+      StelzLink: "",
+      dporiginal: "",
+      timeofday: "Nacht event",
+      GenreList: "Classics,Hitjes,House,RnB",
+      CityName: "Amsterdam"
+    },
+    {
+      EventId: 32897,
+      EvenName: "NR. 133 | Chin Chin Club",
+      Trending: "Yes",
+      EvenementImages: " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
+      OriginalPrice: "15",
+      OurPrice: "10",
+      TheClub: "Chin Chin",
+      OnlineSoon: "NO",
+      Description: "Friends Guestlist | €10 in plaats van €15 | RnB, Hits & Classics",
+      EventDate: "1687906800",
+      RegistrationFrom: "1695877200",
+      RegistrationUntil: "1696546800",
+      MinimalAge: "21",
+      EventCategorie: "Gastenlijst",
+      TicketLink: "",
+      OutofStock: {
+        sold_out: "true"
+      },
+      WhatsappLink: "",
+      StelzLink: "",
+      dporiginal: "",
+      timeofday: "Nacht event",
+      GenreList: "Classics,Hitjes,House,RnB",
+      CityName: "Rotterdam"
+    },
+    {
+      EventId: 32897,
+      EvenName: "DIPSHIT | Chicago Social Club",
+      Trending: "Yes",
+      EvenementImages: " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
+      OriginalPrice: "15",
+      OurPrice: "10",
+      TheClub: "Chin Chin",
+      OnlineSoon: "NO",
+      Description: "Friends Tickets | €7,5 in plaats van €10,5 | Hitjes, Meezingers & Confetti",
+      EventDate: "1687906800",
+      RegistrationFrom: "1695877200",
+      RegistrationUntil: "1696546800",
+      MinimalAge: "21",
+      EventCategorie: "Gastenlijst",
+      TicketLink: "",
+      OutofStock: {
+        sold_out: "false"
+      },
+      WhatsappLink: "",
+      StelzLink: "",
+      dporiginal: "",
+      timeofday: "Nacht event",
+      GenreList: "Classics,Hitjes,House,RnB",
+      CityName: "Rotterdam"
+    },
+    {
+      EventId: 32897,
+      EvenName: "LA FOLIE | Oliva",
+      Trending: "Yes",
+      EvenementImages: " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
+      OriginalPrice: "15",
+      OurPrice: "10",
+      TheClub: "Chin Chin",
+      OnlineSoon: "NO",
+      Description: "Friends Ticket | €10 in plaats van €15 | Hitjes & House",
+      EventDate: "1687561200",
+      RegistrationFrom: "1695877200",
+      RegistrationUntil: "1696546800",
+      MinimalAge: "21",
+      EventCategorie: "Gastenlijst",
+      TicketLink: "",
+      OutofStock: {
+        sold_out: "true"
+      },
+      WhatsappLink: "",
+      StelzLink: "",
+      dporiginal: "",
+      timeofday: "Nacht event",
+      GenreList: "Classics,Hitjes,House,RnB",
+      CityName: "Rotterdam"
+    },
+  ]);
+  
   const handleSearch = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
@@ -31,16 +214,8 @@ const Home = ({ token }) => {
     // Perform search logic here and update the searchResults state accordingly
     // You can use APIs, filter data, or any other search mechanism
 
-    // For example, let's assume you have a list of items to search from
-    const items = [
-      { title: 'Charlee-Lovelee', description: '8 Juni 23:00 + Gastenlijst' },
-      { title: 'Freaky-Supperclud', description: '8 Juni 23:00 + Gastenlijst' },
-      { title: 'Mimi-Chin Chin', description: '8 Juni 23:00 + Gastenlijst' },
-      { title: 'Super Social-Chicago Social Club', description: '8 Juni 23:00 + Vriendenligst' },
-    ];
-
-    const filteredResults = items.filter((item) =>
-      item.title.toLowerCase().includes(query.toLowerCase())
+    const filteredResults = eventData.filter((item) =>
+      item.EvenName.toLowerCase().includes(query.toLowerCase())
     );
 
     setSearchResults(filteredResults);
@@ -123,21 +298,24 @@ const Home = ({ token }) => {
                 onChange={handleSearch}
               />
             </form>
-            <div className={clsx('search-information-box desktop', searchForm ? 'active':'')}>
-              <div className='main-box'>
-                {searchResults.map((result, index) => (
-                <a href='/single-event'>
-                  <div className='search-information-service search-info row'>
-                    <div className="search-information-image">
-                      <TrendingStarSvg />
+            
+            {/* search and search result modal */}
+            <div className='hero-section'>
+              <div className={clsx('search-information-box desktop', searchForm ? 'active':'')}>
+                <div className='main-box search-information-service'>
+                  <h6>Trending</h6>
+                  {searchResults.map((result, index) => (
+                    <div className='row'>
+                      <div className="search-information-image">
+                        <TrendingStarSvg />
+                      </div>
+                      <div key={index} className="search-information-content">
+                        <h5>{result.EvenName}</h5>
+                        <p>{result.Description}</p>
+                      </div>
                     </div>
-                    <div key={index} className="search-information-content">
-                      <h5>{result.title}</h5>
-                      <p>{result.description}</p>
-                    </div>
-                  </div>
-                </a>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
             <div
@@ -156,6 +334,7 @@ const Home = ({ token }) => {
                     <input
                       id="showModalBtnbottom"
                       type="text"
+                      readOnly
                       placeholder="Zoek een evenement, clubavond of festival"
                       autoComplete="off"
                       name="search"

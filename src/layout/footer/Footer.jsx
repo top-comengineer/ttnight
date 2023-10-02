@@ -1,6 +1,13 @@
+import { useState } from 'react';
 import { Box } from '@chakra-ui/react';
 
 const Footer = () => {
+
+  const [email, setEmail] = useState('');
+  const handleChange = e => {
+    setEmail(e.target.value);
+  };
+
   return (
     <Box className="">
       <footer>
@@ -16,7 +23,7 @@ const Footer = () => {
 
               <div className="newsletter-form">
                 <form>
-                  <input type="text" placeholder="Enter your e-mail" />
+                  <input type="text" placeholder="Enter your e-mail" value="" onChange={handleChange} />
                   <button type="submit">Subscribe</button>
                 </form>
               </div>

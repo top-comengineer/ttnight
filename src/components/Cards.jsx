@@ -242,7 +242,7 @@ const Cards = (props) => {
           <div className="row event-box">
             {resultItems.map(item => (
               item.EventDate === todayDate && (
-                <div className="">
+                <div className="mb-[44px]">
                   <Card items={[item]} />
                 </div>
               )
@@ -266,7 +266,7 @@ const Cards = (props) => {
           <div className="row event-box">
             {resultItems.map(item => (
               item.DayOfWeek === 5 && (
-                <div className="">
+                <div className="mb-[44px]">
                   <Card items={[item]} />
                 </div>
               )
@@ -290,7 +290,7 @@ const Cards = (props) => {
           <div className="row event-box">
             {resultItems.map(item => (
               item.DayOfWeek === 6 && (
-                <div className="">
+                <div className="mb-[44px]">
                   <Card items={[item]} />
                 </div>
               )
@@ -314,7 +314,7 @@ const Cards = (props) => {
           <div className="row event-box">
             {resultItems.map(item => (
               item.DayOfWeek === 0 && (
-                <div className="">
+                <div className="mb-[44px]">
                   <Card items={[item]} />
                 </div>
               )

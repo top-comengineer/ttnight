@@ -25,196 +25,207 @@ const Home = ({ token }) => {
   const [eventData, setEventData] = useState([
     {
       EventId: 32897,
-      EvenName: "MIMI",
-      Trending: "Yes",
-      EvenementImages: " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
-      OriginalPrice: "15",
-      OurPrice: "10",
-      TheClub: "Chin Chin",
-      OnlineSoon: "NO",
-      Description: "Friends Guestlist | €10 in plaats van €15 | RnB, Hits & Classics",
-      EventDate: "1696235108",
-      RegistrationFrom: "1695877200",
-      RegistrationUntil: "1696546800",
-      MinimalAge: "21",
-      EventCategorie: "Gastenlijst",
-      TicketLink: "",
+      EvenName: 'MIMI',
+      Trending: 'Yes',
+      EvenementImages:
+        ' https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ',
+      OriginalPrice: '15',
+      OurPrice: '10',
+      TheClub: 'Chin Chin',
+      OnlineSoon: 'NO',
+      Description:
+        'Friends Guestlist | €10 in plaats van €15 | RnB, Hits & Classics',
+      EventDate: '1696235108',
+      RegistrationFrom: '1695877200',
+      RegistrationUntil: '1696546800',
+      MinimalAge: '21',
+      EventCategorie: 'Gastenlijst',
+      TicketLink: '',
       OutofStock: {
-        sold_out: "false"
+        sold_out: 'false',
       },
-      WhatsappLink: "",
-      StelzLink: "",
-      dporiginal: "",
-      timeofday: "Dag event",
-      GenreList: "Classics,Hitjes,House,RnB",
-      CityName: "Amsterdam"
+      WhatsappLink: '',
+      StelzLink: '',
+      dporiginal: '',
+      timeofday: 'Dag event',
+      GenreList: 'Classics,Hitjes,House,RnB',
+      CityName: 'Amsterdam',
     },
     {
       EventId: 32897,
-      EvenName: "FISSA | Oliva",
-      Trending: "Yes",
-      EvenementImages: " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
-      OriginalPrice: "15",
-      OurPrice: "10",
-      TheClub: "Fissa",
-      OnlineSoon: "NO",
-      Description: "Friends Guestlist | €10 in plaats van €15 | RnB, Hits & Classics",
-      EventDate: "1696546800",
-      RegistrationFrom: "1695877200",
-      RegistrationUntil: "1696546800",
-      MinimalAge: "18",
-      EventCategorie: "Gastenlijst",
-      TicketLink: "",
+      EvenName: 'FISSA | Oliva',
+      Trending: 'Yes',
+      EvenementImages:
+        ' https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ',
+      OriginalPrice: '15',
+      OurPrice: '10',
+      TheClub: 'Fissa',
+      OnlineSoon: 'NO',
+      Description:
+        'Friends Guestlist | €10 in plaats van €15 | RnB, Hits & Classics',
+      EventDate: '1696546800',
+      RegistrationFrom: '1695877200',
+      RegistrationUntil: '1696546800',
+      MinimalAge: '18',
+      EventCategorie: 'Gastenlijst',
+      TicketLink: '',
       OutofStock: {
-        sold_out: "false"
+        sold_out: 'false',
       },
-      WhatsappLink: "",
-      StelzLink: "",
-      dporiginal: "",
-      timeofday: "Festival",
-      GenreList: "Classics,Hitjes,House,RnB",
-      CityName: "Amsterdam"
+      WhatsappLink: '',
+      StelzLink: '',
+      dporiginal: '',
+      timeofday: 'Festival',
+      GenreList: 'Classics,Hitjes,House,RnB',
+      CityName: 'Amsterdam',
     },
     {
       EventId: 32897,
-      EvenName: "MIMI",
-      Trending: "Yes",
-      EvenementImages: " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
-      OriginalPrice: "15",
-      OurPrice: "10",
-      TheClub: "Chin Chin",
-      OnlineSoon: "NO",
-      Description: "Friends Guestlist | €10 in plaats van €15 | RnB, Hits & Classics",
-      EventDate: "1696546800",
-      RegistrationFrom: "1695877200",
-      RegistrationUntil: "1696546800",
-      MinimalAge: "18",
-      EventCategorie: "Gastenlijst",
-      TicketLink: "",
+      EvenName: 'MIMI',
+      Trending: 'Yes',
+      EvenementImages:
+        ' https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ',
+      OriginalPrice: '15',
+      OurPrice: '10',
+      TheClub: 'Chin Chin',
+      OnlineSoon: 'NO',
+      Description:
+        'Friends Guestlist | €10 in plaats van €15 | RnB, Hits & Classics',
+      EventDate: '1696546800',
+      RegistrationFrom: '1695877200',
+      RegistrationUntil: '1696546800',
+      MinimalAge: '18',
+      EventCategorie: 'Gastenlijst',
+      TicketLink: '',
       OutofStock: {
-        sold_out: "false"
+        sold_out: 'false',
       },
-      WhatsappLink: "",
-      StelzLink: "",
-      dporiginal: "",
-      timeofday: "Alle event",
-      GenreList: "Classics,Hitjes,House,RnB",
-      CityName: "Amsterdam"
+      WhatsappLink: '',
+      StelzLink: '',
+      dporiginal: '',
+      timeofday: 'Alle event',
+      GenreList: 'Classics,Hitjes,House,RnB',
+      CityName: 'Amsterdam',
     },
     {
       EventId: 32897,
-      EvenName: "TROPICAL GARDEN | Tiwya",
-      Trending: "Yes",
-      EvenementImages: " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
-      OriginalPrice: "15",
-      OurPrice: "10",
-      TheClub: "Fissa",
-      OnlineSoon: "NO",
-      Description: "Friends Guestlist | €10 in plaats van €15 | RnB, Hits & Classics",
-      EventDate: "1696546800",
-      RegistrationFrom: "1695877200",
-      RegistrationUntil: "1696546800",
-      MinimalAge: "21",
-      EventCategorie: "Gastenlijst",
-      TicketLink: "",
+      EvenName: 'TROPICAL GARDEN | Tiwya',
+      Trending: 'Yes',
+      EvenementImages:
+        ' https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ',
+      OriginalPrice: '15',
+      OurPrice: '10',
+      TheClub: 'Fissa',
+      OnlineSoon: 'NO',
+      Description:
+        'Friends Guestlist | €10 in plaats van €15 | RnB, Hits & Classics',
+      EventDate: '1696546800',
+      RegistrationFrom: '1695877200',
+      RegistrationUntil: '1696546800',
+      MinimalAge: '21',
+      EventCategorie: 'Gastenlijst',
+      TicketLink: '',
       OutofStock: {
-        sold_out: "false"
+        sold_out: 'false',
       },
-      WhatsappLink: "",
-      StelzLink: "",
-      dporiginal: "",
-      timeofday: "Nacht event",
-      GenreList: "Classics,Hitjes,House,RnB",
-      CityName: "Amsterdam"
+      WhatsappLink: '',
+      StelzLink: '',
+      dporiginal: '',
+      timeofday: 'Nacht event',
+      GenreList: 'Classics,Hitjes,House,RnB',
+      CityName: 'Amsterdam',
+    },
+    // {
+    //   EventId: 32897,
+    //   EvenName: "NR. 133 | Chin Chin Club",
+    //   Trending: "Yes",
+    //   EvenementImages: " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
+    //   OriginalPrice: "15",
+    //   OurPrice: "10",
+    //   TheClub: "Chin Chin",
+    //   OnlineSoon: "NO",
+    //   Description: "Friends Guestlist | €10 in plaats van €15 | RnB, Hits & Classics",
+    //   EventDate: "1687647600",
+    //   RegistrationFrom: "1695877200",
+    //   RegistrationUntil: "1696546800",
+    //   MinimalAge: "23",
+    //   EventCategorie: "Gastenlijst",
+    //   TicketLink: "",
+    //   OutofStock: {
+    //     sold_out: "true"
+    //   },
+    //   WhatsappLink: "",
+    //   StelzLink: "",
+    //   dporiginal: "",
+    //   timeofday: "Nacht event",
+    //   GenreList: "Classics,Hitjes,House,RnB",
+    //   CityName: "Rotterdam"
+    // },
+    {
+      EventId: 32897,
+      EvenName: 'DIPSHIT | Chicago Social Club',
+      Trending: 'Yes',
+      EvenementImages:
+        ' https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ',
+      OriginalPrice: '15',
+      OurPrice: '10',
+      TheClub: 'Fissa',
+      OnlineSoon: 'NO',
+      Description:
+        'Friends Tickets | €7,5 in plaats van €10,5 | Hitjes, Meezingers & Confetti',
+      EventDate: '1687906800',
+      RegistrationFrom: '1695877200',
+      RegistrationUntil: '1696546800',
+      MinimalAge: '21',
+      EventCategorie: 'Gastenlijst',
+      TicketLink: '',
+      OutofStock: {
+        sold_out: 'false',
+      },
+      WhatsappLink: '',
+      StelzLink: '',
+      dporiginal: '',
+      timeofday: 'Festival event',
+      GenreList: 'Classics,Hitjes,House,RnB',
+      CityName: 'Rotterdam',
     },
     {
       EventId: 32897,
-      EvenName: "NR. 133 | Chin Chin Club",
-      Trending: "Yes",
-      EvenementImages: " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
-      OriginalPrice: "15",
-      OurPrice: "10",
-      TheClub: "Chin Chin",
-      OnlineSoon: "NO",
-      Description: "Friends Guestlist | €10 in plaats van €15 | RnB, Hits & Classics",
-      EventDate: "1687647600",
-      RegistrationFrom: "1695877200",
-      RegistrationUntil: "1696546800",
-      MinimalAge: "23",
-      EventCategorie: "Gastenlijst",
-      TicketLink: "",
+      EvenName: 'LA FOLIE | Oliva',
+      Trending: 'Yes',
+      EvenementImages:
+        ' https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ',
+      OriginalPrice: '15',
+      OurPrice: '10',
+      TheClub: 'Chin Chin',
+      OnlineSoon: 'NO',
+      Description: 'Friends Ticket | €10 in plaats van €15 | Hitjes & House',
+      EventDate: '1696204800',
+      RegistrationFrom: '1695877200',
+      RegistrationUntil: '1696546800',
+      MinimalAge: '21',
+      EventCategorie: 'Gastenlijst',
+      TicketLink: '',
       OutofStock: {
-        sold_out: "true"
+        sold_out: 'true',
       },
-      WhatsappLink: "",
-      StelzLink: "",
-      dporiginal: "",
-      timeofday: "Nacht event",
-      GenreList: "Classics,Hitjes,House,RnB",
-      CityName: "Rotterdam"
-    },
-    {
-      EventId: 32897,
-      EvenName: "DIPSHIT | Chicago Social Club",
-      Trending: "Yes",
-      EvenementImages: " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
-      OriginalPrice: "15",
-      OurPrice: "10",
-      TheClub: "Fissa",
-      OnlineSoon: "NO",
-      Description: "Friends Tickets | €7,5 in plaats van €10,5 | Hitjes, Meezingers & Confetti",
-      EventDate: "1687906800",
-      RegistrationFrom: "1695877200",
-      RegistrationUntil: "1696546800",
-      MinimalAge: "21",
-      EventCategorie: "Gastenlijst",
-      TicketLink: "",
-      OutofStock: {
-        sold_out: "false"
-      },
-      WhatsappLink: "",
-      StelzLink: "",
-      dporiginal: "",
-      timeofday: "Festival event",
-      GenreList: "Classics,Hitjes,House,RnB",
-      CityName: "Rotterdam"
-    },
-    {
-      EventId: 32897,
-      EvenName: "LA FOLIE | Oliva",
-      Trending: "Yes",
-      EvenementImages: " https://staging3.22night.com/wp-content/uploads/2023/09/363763102_817905126787975_7757634089889255548_n-1.jpg ",
-      OriginalPrice: "15",
-      OurPrice: "10",
-      TheClub: "Chin Chin",
-      OnlineSoon: "NO",
-      Description: "Friends Ticket | €10 in plaats van €15 | Hitjes & House",
-      EventDate: "1696204800",
-      RegistrationFrom: "1695877200",
-      RegistrationUntil: "1696546800",
-      MinimalAge: "21",
-      EventCategorie: "Gastenlijst",
-      TicketLink: "",
-      OutofStock: {
-        sold_out: "true"
-      },
-      WhatsappLink: "",
-      StelzLink: "",
-      dporiginal: "",
-      timeofday: "Dag event",
-      GenreList: "Classics,Hitjes,House,RnB",
-      CityName: "Rotterdam"
+      WhatsappLink: '',
+      StelzLink: '',
+      dporiginal: '',
+      timeofday: 'Dag event',
+      GenreList: 'Classics,Hitjes,House,RnB',
+      CityName: 'Rotterdam',
     },
   ]);
-  
-  const handleSearch = (e) => {
+
+  const handleSearch = e => {
     const query = e.target.value;
     setSearchQuery(query);
 
     // Perform search logic here and update the searchResults state accordingly
     // You can use APIs, filter data, or any other search mechanism
 
-    const filteredResults = eventData.filter((item) =>
+    const filteredResults = eventData.filter(item =>
       item.EvenName.toLowerCase().includes(query.toLowerCase())
     );
 
@@ -226,7 +237,7 @@ const Home = ({ token }) => {
     getEventData(token);
     // console.log('this is user token', token);
   }, [token]);
-  
+
   async function getEventData(token) {
     const data = {
       token: token,
@@ -298,14 +309,19 @@ const Home = ({ token }) => {
                 onChange={handleSearch}
               />
             </form>
-            
+
             {/* search and search result modal */}
-            <div className='hero-section'>
-              <div className={clsx('search-information-box desktop', searchForm ? 'active':'')}>
-                <div className='main-box search-information-service'>
+            <div className="hero-section">
+              <div
+                className={clsx(
+                  'search-information-box desktop',
+                  searchForm ? 'active' : ''
+                )}
+              >
+                <div className="main-box search-information-service">
                   <h6>Trending</h6>
                   {searchResults.map((result, index) => (
-                    <div className='row'>
+                    <div className="row">
                       <div className="search-information-image">
                         <TrendingStarSvg />
                       </div>
@@ -457,7 +473,7 @@ const Home = ({ token }) => {
           </div>
         </div>
       </div>
-      
+
       {/* <section>
         <DiscoverEvent eventData={eventData}/>
       </section> */}

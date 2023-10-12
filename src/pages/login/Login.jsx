@@ -5,7 +5,7 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
 import { LogoSvg } from '../../utils/svg';
-// import './Login.css';
+import './Login.css';
 import ProtectImg from '../../assets/image svg/lock.svg';
 import chatMsgImg from '../../assets/new-icons/chat-messages.svg';
 import ErrorSvg from '../../assets/image svg/error.svg';
@@ -44,9 +44,9 @@ const Login = () => {
         <header className="login">
           <div className="row">
             <div className="logo-log">
-              <a href="/">
+              {/* <a href="/">
                 <LogoSvg />
-              </a>
+              </a> */}
             </div>
           </div>
           <div className="login_form">
